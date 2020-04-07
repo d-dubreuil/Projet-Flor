@@ -14,8 +14,8 @@ public class Paiement {
 	private Long id;
 	@Version
 	private int version;
-	private Integer numeroCarte;
-	private Long montant;
+	private String numeroCarte;
+	private Float montant;
 	@OneToOne(mappedBy = "paiement")
 	private Commande commande;
 
@@ -23,48 +23,57 @@ public class Paiement {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Paiement(Integer numeroCarte,Long montant) {
+
+	public Paiement(String numeroCarte, Float montant) {
 		super();
-		this.numeroCarte=numeroCarte;
-		this.montant=montant;
+		this.numeroCarte = numeroCarte;
+		this.montant = montant;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public int getVersion() {
 		return version;
 	}
+
 	public void setVersion(int version) {
 		this.version = version;
 	}
-	public Integer getNumeroCarte() {
+
+	public String getNumeroCarte() {
 		return numeroCarte;
 	}
-	public void setNumeroCarte(Integer numeroCarte) {
+
+	public void setNumeroCarte(String numeroCarte) {
 		this.numeroCarte = numeroCarte;
 	}
-	public Long getMontant() {
+
+	public Float getMontant() {
 		return montant;
 	}
-	public void setMontant(Long montant) {
+
+	public void setMontant(Float montant) {
 		this.montant = montant;
 	}
-	
-	
+
 	public Commande getCommande() {
 		return commande;
 	}
+
 	public void setCommande(Commande commande) {
 		this.commande = commande;
 	}
+
 	@Override
 	public String toString() {
 		return "Paiement [id=" + id + ", version=" + version + ", numeroCarte=" + numeroCarte + ", montant=" + montant
 				+ "]";
 	}
-	
-	
+
 }
