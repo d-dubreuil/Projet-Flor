@@ -24,7 +24,7 @@ public class FauneDaoJpa implements IFauneDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Faune> query = em.createQuery("from Paiement", Faune.class);
+			TypedQuery<Faune> query = em.createQuery("from Faune", Faune.class);
 
 			faunes = query.getResultList();
 

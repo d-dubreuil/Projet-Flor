@@ -24,7 +24,7 @@ public class HistoriqueDaoJpa implements IHistoriqueDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Historique> query = em.createQuery("from Paiement", Historique.class);
+			TypedQuery<Historique> query = em.createQuery("from Historique", Historique.class);
 
 			historiques = query.getResultList();
 

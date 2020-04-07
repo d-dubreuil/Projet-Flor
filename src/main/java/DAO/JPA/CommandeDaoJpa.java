@@ -24,7 +24,7 @@ public class CommandeDaoJpa implements ICommandeDao{
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Commande> query = em.createQuery("from Paiement", Commande.class);
+			TypedQuery<Commande> query = em.createQuery("from Commande", Commande.class);
 
 			commandes = query.getResultList();
 
