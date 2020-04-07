@@ -1,12 +1,26 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
+
+@Entity
 public class Caracteristique {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
+	private int version;
 	private String nom;
 	private String valeur;
 	private TypeCarac typeCarac;
+	@OneToMany (mappedBy = "caracteristique")
 	private ReferentielUtilisateur referentielUtilisateur;
+	@OneToMany (mappedBy = "caracteristique")
 	private ReferentielCaracteristique referentielCaracteristique;
+	@OneToMany (mappedBy = "caracteristique")
 	private ReferentielFaune referentielFaune;
 		
 	public Caracteristique() {

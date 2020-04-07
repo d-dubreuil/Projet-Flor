@@ -1,11 +1,27 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
+
+@Entity
 public class Flore {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
+	private int version;
 	private String nom;
+	@OneToMany (mappedBy = "flore")
 	private ReferentielCaracteristique referentielCaracteristique;
+	@OneToMany (mappedBy = "flore")
 	private ReferentielFaune referentielFaune;
+	@ManyToMany(mappedBy = "flore")
 	private Utilisateur utilisateur;
+	@OneToMany (mappedBy = "flore")
 	private Produit produit;
 	
 	public Flore() {

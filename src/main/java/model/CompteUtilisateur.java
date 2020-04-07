@@ -1,7 +1,19 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Version;
+
+@Entity
 public class CompteUtilisateur {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
+	private int version;
 	private String identifiant;
 	private String motDePasse;
 	private String mail;
@@ -11,8 +23,11 @@ public class CompteUtilisateur {
 	private String codePostal;
 	private String ville;
 	private String telephone;
+	@OneToMany (mappedBy = "compte")
 	private Historique historique;
+	@OneToOne (mappedBy = "compteUtilisateur")
 	private Utilisateur utilisateur;
+	@OneToMany (mappedBy = "compteUtilisateur")
 	private ReferentielUtilisateur referentielUtiliseur;
 	
 	public CompteUtilisateur() {

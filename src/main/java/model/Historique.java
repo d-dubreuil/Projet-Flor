@@ -1,9 +1,23 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Version;
+
+@Entity
 public class Historique {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
+	private int version;
 	private String recherche;
 	private String nomRecherche;
+	@ManyToOne
+	@JoinColumn (name ="compteUtilisateurId")
 	private CompteUtilisateur compte;
 	
 	public Historique() {
@@ -37,6 +51,13 @@ public class Historique {
 	}
 	public void setCompte(CompteUtilisateur compte) {
 		this.compte = compte;
+	}
+	
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
 	}
 	@Override
 	public String toString() {
