@@ -24,7 +24,7 @@ public class FloreDaoJpa implements IFloreDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Flore> query = em.createQuery("from Paiement", Flore.class);
+			TypedQuery<Flore> query = em.createQuery("from Flore", Flore.class);
 
 			flores = query.getResultList();
 

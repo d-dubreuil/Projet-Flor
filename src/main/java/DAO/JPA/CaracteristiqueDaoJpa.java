@@ -24,7 +24,7 @@ public class CaracteristiqueDaoJpa implements ICaracteristiqueDao{
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Caracteristique> query = em.createQuery("from Paiement", Caracteristique.class);
+			TypedQuery<Caracteristique> query = em.createQuery("from Caracteristique", Caracteristique.class);
 
 			caracteristiques = query.getResultList();
 

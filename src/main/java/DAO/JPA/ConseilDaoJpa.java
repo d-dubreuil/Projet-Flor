@@ -24,7 +24,7 @@ public class ConseilDaoJpa implements IConseilDao{
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<Conseil> query = em.createQuery("from Paiement", Conseil.class);
+			TypedQuery<Conseil> query = em.createQuery("from Conseil", Conseil.class);
 
 			conseils = query.getResultList();
 
