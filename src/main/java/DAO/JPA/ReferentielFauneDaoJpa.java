@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IReferentielFauneDao;
-import Singleton.Application;
 import model.ReferentielFaune;
+import singleton.Application;
 
 public class ReferentielFauneDaoJpa implements IReferentielFauneDao{
 

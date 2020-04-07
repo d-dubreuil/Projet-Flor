@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IPanierDao;
-import Singleton.Application;
 import model.Panier;
+import singleton.Application;
 
 public class PanierDaoJpa implements IPanierDao{
 
