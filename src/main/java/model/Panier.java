@@ -13,6 +13,9 @@ public class Panier {
 	@Version
 	private int version;
 	private Float total;
+	private Commande commande;
+	private Selection selection;
+	private Utilisateur utilisateur;
 	
 	
 	public Panier() {
@@ -40,6 +43,27 @@ public class Panier {
 	}
 	public void setTotal(Float total) {
 		this.total = total;
+	}
+	
+	
+	public Commande getCommande() {
+		return commande;
+	}
+	public void setCommande(Commande commande) {
+		this.commande = commande;
+	}
+	public Selection getSelection() {
+		return selection;
+	}
+	public void setSelection(Selection selection) {
+		this.selection = selection;
+	}
+	
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	@Override
 	public String toString() {
