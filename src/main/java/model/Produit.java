@@ -1,24 +1,38 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
+@Entity
+@Table
 public class Produit {
 	@Id
 	@GeneratedValue
 	private Long id;
 	@Version
 	private int version;
-	@Column()
 	private Integer refProduit;
 	private Long prix;
 	private String fournisseur;
 	private Integer stock;
+	@ManyToOne
+	@JoinColumn(name = "faune_id")
 	private Faune faune;
+	@ManyToOne
+	@JoinColumn(name = "flore_id")
 	private Flore flore;
+	@OneToMany(mappedBy = "produit")
 	private Selection selection;
+	@ManyToOne
+	@JoinColumn(name = "utilisateur_id")
+	private Utilisateur utilisateur;
 	
 	public Produit() {
 		super();

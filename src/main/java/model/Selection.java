@@ -2,6 +2,8 @@ package model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
 public class Selection {
@@ -13,7 +15,11 @@ public class Selection {
 	@Version
 	private int version;
 	private Integer total;
+	@ManyToOne
+	@JoinColumn(name = "produit_id")
 	private Produit produit;
+	@ManyToOne
+	@JoinColumn(name = "panier_id")
 	private Panier panier;
 	
 	public Selection() {
