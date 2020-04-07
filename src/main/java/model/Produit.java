@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +32,7 @@ public class Produit {
 	@JoinColumn(name = "flore_id")
 	private Flore flore;
 	@OneToMany(mappedBy = "produit")
-	private Selection selection;
+	private List<Selection> selections= new ArrayList<Selection>();
 	@ManyToOne
 	@JoinColumn(name = "utilisateur_id")
 	private Utilisateur utilisateur;
@@ -93,11 +96,22 @@ public class Produit {
 	public void setFlore(Flore flore) {
 		this.flore = flore;
 	}
-	public Selection getSelection() {
-		return selection;
+	
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
-	public void setSelection(Selection selection) {
-		this.selection = selection;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
+	
+	public List<Selection> getSelections() {
+		return selections;
+	}
+	public void setSelections(List<Selection> selections) {
+		this.selections = selections;
+	}
+	public void addSelection(Selection selection) {
+		this.selections.add(selection);
 	}
 	@Override
 	public String toString() {

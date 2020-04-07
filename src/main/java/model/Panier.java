@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,9 +25,9 @@ public class Panier {
 	private int version;
 	private Float total;
 	@OneToOne(mappedBy = "panier")
-	private Commande commande;
+	private List<Commande> commandes= new ArrayList<Commande>();
 	@OneToMany(mappedBy = "panier")
-	private Selection selection;
+	private List<Selection> selections= new ArrayList<Selection>();
 	@ManyToOne
 	@JoinColumn(name= "utilisateur_id")
 	private Utilisateur utilisateur;
@@ -58,24 +61,31 @@ public class Panier {
 	}
 	
 	
-	public Commande getCommande() {
-		return commande;
+	public List<Commande> getCommandes() {
+		return commandes;
 	}
-	public void setCommande(Commande commande) {
-		this.commande = commande;
+	public void setCommandes(List<Commande> commandes) {
+		this.commandes = commandes;
 	}
-	public Selection getSelection() {
-		return selection;
+
+	public List<Selection> getSelections() {
+		return selections;
 	}
-	public void setSelection(Selection selection) {
-		this.selection = selection;
+	public void setSelections(List<Selection> selections) {
+		this.selections = selections;
 	}
-	
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+	
+	public void addSelection(Selection selection) {
+		this.selections.add(selection);
+	}
+	public void addCommande(Commande commande) {
+		this.commandes.add(commande);
 	}
 	@Override
 	public String toString() {

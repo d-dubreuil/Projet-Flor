@@ -3,9 +3,13 @@ package model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 @Entity
 public class ReferentielCaracteristique {
+	
+	@Version
+	private int version;
 	@ManyToOne
 	@JoinColumn (name = "caracteristique_Id")
 	private Caracteristique caracteristique;
@@ -23,6 +27,12 @@ public class ReferentielCaracteristique {
 	}
 	public void setFlore(Flore flore) {
 		this.flore = flore;
+	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
 	}
 	
 	
