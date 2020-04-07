@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IFloreDao;
-import Singleton.Application;
 import model.Flore;
+import singleton.Application;
 
 public class FloreDaoJpa implements IFloreDao {
 

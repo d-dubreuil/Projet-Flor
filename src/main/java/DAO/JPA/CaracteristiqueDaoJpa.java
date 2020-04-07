@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.ICaracteristiqueDao;
-import Singleton.Application;
 import model.Caracteristique;
+import singleton.Application;
 
 public class CaracteristiqueDaoJpa implements ICaracteristiqueDao{
 

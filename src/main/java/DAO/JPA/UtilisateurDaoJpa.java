@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IUtilisateurDao;
-import Singleton.Application;
 import model.Utilisateur;
+import singleton.Application;
 
 public class UtilisateurDaoJpa implements IUtilisateurDao{
 

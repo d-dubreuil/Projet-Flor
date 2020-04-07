@@ -38,7 +38,7 @@ public class Application {
 
 	private static Application instance = null;
 
-	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("vol");
+	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("flore");
 
 	private final ICaracteristiqueDao CaracteristiqueDao = new CaracteristiqueDaoJpa();
 
