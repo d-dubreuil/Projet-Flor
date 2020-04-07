@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,13 +19,13 @@ public class Flore {
 	private int version;
 	private String nom;
 	@OneToMany (mappedBy = "flore")
-	private ReferentielCaracteristique referentielCaracteristique;
+	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();
 	@OneToMany (mappedBy = "flore")
-	private ReferentielFaune referentielFaune;
+	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
 	@ManyToMany(mappedBy = "flore")
-	private Utilisateur utilisateur;
+	private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 	@OneToMany (mappedBy = "flore")
-	private Produit produit;
+	private List<Produit> produits= new ArrayList<Produit>();
 	
 	public Flore() {
 		super();
@@ -43,29 +46,49 @@ public class Flore {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public ReferentielCaracteristique getReferentielCaracteristique() {
-		return referentielCaracteristique;
+	
+	public int getVersion() {
+		return version;
 	}
-	public void setReferentielCaracteristique(ReferentielCaracteristique referentielCaracteristique) {
-		this.referentielCaracteristique = referentielCaracteristique;
+	public void setVersion(int version) {
+		this.version = version;
 	}
-	public ReferentielFaune getReferentielFaune() {
-		return referentielFaune;
+
+	public List<ReferentielCaracteristique> getReferentielCaracteristiques() {
+		return referentielCaracteristiques;
 	}
-	public void setReferentielFaune(ReferentielFaune referentielFaune) {
-		this.referentielFaune = referentielFaune;
+	public void setReferentielCaracteristiques(List<ReferentielCaracteristique> referentielCaracteristiques) {
+		this.referentielCaracteristiques = referentielCaracteristiques;
 	}
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
+	public void addReferentielCaracteristiques (ReferentielCaracteristique referentielCaracteristique) {
+		this.referentielCaracteristiques.add(referentielCaracteristique);
 	}
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+	public List<ReferentielFaune> getReferentielFaunes() {
+		return referentielFaunes;
 	}
-	public Produit getProduit() {
-		return produit;
+	public void setReferentielFaunes(List<ReferentielFaune> referentielFaunes) {
+		this.referentielFaunes = referentielFaunes;
 	}
-	public void setProduit(Produit produit) {
-		this.produit = produit;
+	public void addReferentielFaunes (ReferentielFaune referentielFaune) {
+		this.referentielFaunes.add(referentielFaune);
+	}
+	public List<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+	public void setUtilisateurs(List<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+	public void addUtilisateurs (Utilisateur utilisateur) {
+		this.utilisateurs.add(utilisateur);
+	}
+	public List<Produit> getProduits() {
+		return produits;
+	}
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
+	}
+	public void addProduits (Produit produit) {
+		this.produits.add(produit);
 	}
 	@Override
 	public String toString() {

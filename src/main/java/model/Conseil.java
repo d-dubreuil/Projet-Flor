@@ -26,6 +26,13 @@ public class Conseil {
 		super();
 		this.nom = nom;
 	}
+	
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
+	}
 	public Long getId() {
 		return id;
 	}

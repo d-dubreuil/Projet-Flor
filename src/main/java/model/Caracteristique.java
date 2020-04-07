@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,11 +20,11 @@ public class Caracteristique {
 	private String valeur;
 	private TypeCarac typeCarac;
 	@OneToMany (mappedBy = "caracteristique")
-	private ReferentielUtilisateur referentielUtilisateur;
+	private List <ReferentielUtilisateur> referentielUtilisateurs = new ArrayList <ReferentielUtilisateur>();
 	@OneToMany (mappedBy = "caracteristique")
-	private ReferentielCaracteristique referentielCaracteristique;
+	private List <ReferentielCaracteristique> referentielCaracteristiques = new ArrayList <ReferentielCaracteristique>();
 	@OneToMany (mappedBy = "caracteristique")
-	private ReferentielFaune referentielFaune;
+	private List <ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
 		
 	public Caracteristique() {
 		super();
@@ -58,23 +61,49 @@ public class Caracteristique {
 	public void setTypeCarac(TypeCarac typeCarac) {
 		this.typeCarac = typeCarac;
 	}
-	public ReferentielUtilisateur getReferentielUtilisateur() {
-		return referentielUtilisateur;
+
+
+	public int getVersion() {
+		return version;
 	}
-	public void setReferentielUtilisateur(ReferentielUtilisateur referentielUtilisateur) {
-		this.referentielUtilisateur = referentielUtilisateur;
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
-	public ReferentielCaracteristique getReferentielCaracteristique() {
-		return referentielCaracteristique;
+
+	public List<ReferentielUtilisateur> getReferentielUtilisateur() {
+		return referentielUtilisateurs;
 	}
-	public void setReferentielCaracteristique(ReferentielCaracteristique referentielCaracteristique) {
-		this.referentielCaracteristique = referentielCaracteristique;
+
+	public void setReferentielUtilisateur(List<ReferentielUtilisateur> referentielUtilisateur) {
+		this.referentielUtilisateurs = referentielUtilisateur;
 	}
-	public ReferentielFaune getReferentielFaune() {
-		return referentielFaune;
+	
+	public void addReferentielUtilisateur (ReferentielUtilisateur referentielUtilisateur) {
+		this.referentielUtilisateurs.add(referentielUtilisateur);
 	}
-	public void setReferentielFaune(ReferentielFaune referentielFaune) {
-		this.referentielFaune = referentielFaune;
+
+	public List<ReferentielCaracteristique> getReferentielCaracteristique() {
+		return referentielCaracteristiques;
+	}
+
+	public void setReferentielCaracteristique(List<ReferentielCaracteristique> referentielCaracteristique) {
+		this.referentielCaracteristiques = referentielCaracteristique;
+	}
+	public void addReferentielCaracteristique (ReferentielCaracteristique referentielCaracteristique) {
+		this.referentielCaracteristiques.add(referentielCaracteristique);
+	}
+
+	public List<ReferentielFaune> getReferentielFaune() {
+		return referentielFaunes;
+	}
+
+	public void setReferentielFaune(List<ReferentielFaune> referentielFaune) {
+		this.referentielFaunes = referentielFaune;
+	}
+	
+	public void addReferentielFaune (ReferentielFaune referentielFaune) {
+		this.referentielFaunes.add(referentielFaune);
 	}
 
 	@Override

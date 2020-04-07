@@ -1,15 +1,15 @@
 package model;
 
-import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Version;
 
 @Entity
-@Table
 public class Faune {
 
 	@Id
@@ -19,7 +19,7 @@ public class Faune {
 	private int version;
 	private String nomFaune;
 	@OneToMany(mappedBy = "faune")
-	private ReferentielFaune referentielFaune;
+	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
 	
 	public Faune() {
 		super();
@@ -46,12 +46,15 @@ public class Faune {
 	public void setNomFaune(String nomFaune) {
 		this.nomFaune = nomFaune;
 	}
-	
-	public ReferentielFaune getReferentielFaune() {
-		return referentielFaune;
+	public void addReferentielFaune (ReferentielFaune referentielFaune) {
+		this.referentielFaunes.add(referentielFaune);
 	}
-	public void setReferentielFaune(ReferentielFaune referentielFaune) {
-		this.referentielFaune = referentielFaune;
+	
+	public List<ReferentielFaune> getReferentielFaunes() {
+		return referentielFaunes;
+	}
+	public void setReferentielFaunes(List<ReferentielFaune> referentielFaunes) {
+		this.referentielFaunes = referentielFaunes;
 	}
 	@Override
 	public String toString() {

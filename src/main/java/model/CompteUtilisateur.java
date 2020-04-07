@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,11 +27,11 @@ public class CompteUtilisateur {
 	private String ville;
 	private String telephone;
 	@OneToMany (mappedBy = "compte")
-	private Historique historique;
+	private List<Historique> historiques = new ArrayList<Historique>();
 	@OneToOne (mappedBy = "compteUtilisateur")
 	private Utilisateur utilisateur;
 	@OneToMany (mappedBy = "compteUtilisateur")
-	private ReferentielUtilisateur referentielUtiliseur;
+	private List <ReferentielUtilisateur> referentielUtiliseurs = new ArrayList<ReferentielUtilisateur>();
 	
 	public CompteUtilisateur() {
 		super();
@@ -106,23 +109,37 @@ public class CompteUtilisateur {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public Historique getHistorique() {
-		return historique;
-	}
-	public void setHistorique(Historique historique) {
-		this.historique = historique;
-	}
+	
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
-	public ReferentielUtilisateur getReferentielUtiliseur() {
-		return referentielUtiliseur;
+	
+	public int getVersion() {
+		return version;
 	}
-	public void setReferentielUtiliseur(ReferentielUtilisateur referentielUtiliseur) {
-		this.referentielUtiliseur = referentielUtiliseur;
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	public List<Historique> getHistorique() {
+		return historiques;
+	}
+	public void setHistorique(List<Historique> historique) {
+		this.historiques = historique;
+	}
+	public void addHistorique (Historique historique) {
+		this.historiques.add(historique);
+	}
+	public List<ReferentielUtilisateur> getReferentielUtilisateur() {
+		return referentielUtiliseurs;
+	}
+	public void setReferentielUtilisateur(List<ReferentielUtilisateur> referentielUtilisateur) {
+		this.referentielUtiliseurs = referentielUtilisateur;
+	}
+	public void addReferentielUtilisateur (ReferentielUtilisateur referentielUtiliseur) {
+		this.referentielUtiliseurs.add(referentielUtiliseur);
 	}
 	@Override
 	public String toString() {
