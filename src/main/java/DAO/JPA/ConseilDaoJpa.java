@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IConseilDao;
-import Singleton.Application;
 import model.Conseil;
+import singleton.Application;
 
 public class ConseilDaoJpa implements IConseilDao{
 

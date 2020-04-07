@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IReferentielUtilisateurDao;
-import Singleton.Application;
 import model.ReferentielUtilisateur;
+import singleton.Application;
 
 public class ReferentielUtilisateurDaoJpa implements IReferentielUtilisateurDao{
 
