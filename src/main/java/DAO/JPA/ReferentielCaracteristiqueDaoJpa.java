@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IReferentielCaracteristiqueDao;
-import Singleton.Application;
 import model.ReferentielCaracteristique;
+import singleton.Application;
 
 public class ReferentielCaracteristiqueDaoJpa implements IReferentielCaracteristiqueDao{
 

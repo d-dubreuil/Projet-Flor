@@ -7,8 +7,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import DAO.interfaces.IProduitDao;
-import Singleton.Application;
 import model.Produit;
+import singleton.Application;
 
 public class ProduitDaoJpa implements IProduitDao{
 
