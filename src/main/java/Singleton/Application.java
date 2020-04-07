@@ -19,6 +19,7 @@ import DAO.interfaces.IFauneDao;
 import DAO.interfaces.IFloreDao;
 import DAO.interfaces.IHistoriqueDao;
 import DAO.interfaces.IPaiementDao;
+import DAO.interfaces.IPanierDao;
 
 
 
@@ -46,7 +47,7 @@ public class Application {
 
 	private final IPaiementDao paiementDao = new PaiementDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final IPanierDao panierDao = new CaracteristiqueDaoJpa();
 
 	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
 
