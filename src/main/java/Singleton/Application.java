@@ -3,7 +3,21 @@ package Singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import DAO.JPA.CaracteristiqueDaoJpa;
+import DAO.JPA.CommandeDaoJpa;
+import DAO.JPA.CompteUtilisateurDaoJpa;
+import DAO.JPA.ConseilDaoJpa;
+import DAO.JPA.FauneDaoJpa;
+import DAO.JPA.FloreDaoJpa;
+import DAO.JPA.HistoriqueDaoJpa;
 import DAO.JPA.PaiementDaoJpa;
+import DAO.interfaces.ICaracteristiqueDao;
+import DAO.interfaces.ICommandeDao;
+import DAO.interfaces.ICompteUtilisateurDao;
+import DAO.interfaces.IConseilDao;
+import DAO.interfaces.IFauneDao;
+import DAO.interfaces.IFloreDao;
+import DAO.interfaces.IHistoriqueDao;
 import DAO.interfaces.IPaiementDao;
 
 
@@ -16,7 +30,36 @@ public class Application {
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("vol");
 
-	private final IAeroportDao aeroportDao = new AeroportDaoJpa();
+	private final ICaracteristiqueDao CaracteristiqueDao = new CaracteristiqueDaoJpa();
+	
+	private final ICommandeDao commandeDao = new CommandeDaoJpa();
+
+	private final ICompteUtilisateurDao compteUtilisateurDao = new CompteUtilisateurDaoJpa();
+
+	private final IConseilDao conseilDao = new ConseilDaoJpa();
+
+	private final IFauneDao fauneDao = new FauneDaoJpa();
+
+	private final IFloreDao floreDao = new FloreDaoJpa();
+
+	private final IHistoriqueDao historiqueDao = new HistoriqueDaoJpa();
+
+	private final IPaiementDao paiementDao = new PaiementDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
+	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+
 
 
 
