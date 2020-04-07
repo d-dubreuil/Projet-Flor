@@ -40,7 +40,7 @@ public class Application {
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("flore");
 
-	private final ICaracteristiqueDao CaracteristiqueDao = new CaracteristiqueDaoJpa();
+	private final ICaracteristiqueDao caracteristiqueDao = new CaracteristiqueDaoJpa();
 
 	private final ICommandeDao commandeDao = new CommandeDaoJpa();
 
@@ -71,7 +71,7 @@ public class Application {
 	private final IUtilisateurDao utilisateurDao = new UtilisateurDaoJpa();
 
 	public ICaracteristiqueDao getCaracteristiqueDao() {
-		return CaracteristiqueDao;
+		return caracteristiqueDao;
 	}
 
 	public ICommandeDao getCommandeDao() {

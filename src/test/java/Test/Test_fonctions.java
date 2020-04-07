@@ -1,7 +1,6 @@
 package Test;
 
-import model.Caracteristique;
-import model.TypeCarac;
+import model.Paiement;
 import singleton.Application;
 
 public class Test_fonctions {
@@ -10,20 +9,22 @@ public class Test_fonctions {
 		testCRUD();
 
 	}
+
 	public static void testCRUD() {
-		Caracteristique carac1 = new Caracteristique("taille","Haute",TypeCarac.Flore);
+		Paiement pai1 = new Paiement("1564 8554 8793 5456", 29.99f);
 
-		carac1 = Application.getInstance().getCaracteristiqueDao().save(carac1);
-		
-		System.out.println(Application.getInstance().getCaracteristiqueDao().find(carac1.getId()));
+		pai1 = Application.getInstance().getPaiementDao().save(pai1);
 
-		carac1.setNom("Allemagne");
-		carac1 = Application.getInstance().getCaracteristiqueDao().save(carac1);
-		System.out.println(Application.getInstance().getCaracteristiqueDao().find(carac1.getId()));
-		
-		System.out.println(Application.getInstance().getCaracteristiqueDao().findAll());
-		Application.getInstance().getCaracteristiqueDao().delete(carac1);
-		System.out.println(Application.getInstance().getCaracteristiqueDao().findAll());
+		System.out.println(Application.getInstance().getPaiementDao().find(pai1.getId()));
+
+		pai1.setMontant(34.99f);
+
+		pai1 = Application.getInstance().getPaiementDao().save(pai1);
+		System.out.println(Application.getInstance().getPaiementDao().find(pai1.getId()));
+
+		System.out.println(Application.getInstance().getPaiementDao().findAll());
+		Application.getInstance().getPaiementDao().delete(pai1);
+		System.out.println(Application.getInstance().getPaiementDao().findAll());
 	}
 
 }
