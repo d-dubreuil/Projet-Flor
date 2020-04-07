@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -20,6 +22,7 @@ public class Utilisateur {
 	private Long id;
 	@Version
 	private int version;
+	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur disc;
 	@OneToOne
 	@JoinColumn(name = "compteUtilisateurId")
@@ -37,7 +40,6 @@ public class Utilisateur {
 	public Utilisateur() {
 		super();
 	}
-
 	public Utilisateur(TypeUtilisateur disc) {
 		super();
 		this.disc = disc;
@@ -50,7 +52,7 @@ public class Utilisateur {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
 	public TypeUtilisateur getDisc() {
 		return disc;
 	}

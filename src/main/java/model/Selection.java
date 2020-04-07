@@ -29,7 +29,7 @@ public class Selection {
 	}
 	
 	
-	public Selection(Long id, int version, Integer total) {
+	public Selection(Integer total) {
 		super();
 		this.total = total;
 	}
