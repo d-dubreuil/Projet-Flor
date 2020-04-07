@@ -14,9 +14,12 @@ public class Commande {
 	private int version;
 	@Column()
 	private Integer reference;
+	private Paiement paiement;
+	private Panier panier;
 	@Column()
 	private String typeEnvoi;
 	private Float total;
+	
 	public Commande() {
 		super();
 	}
@@ -55,6 +58,20 @@ public class Commande {
 	}
 	public void setTotal(Float total) {
 		this.total = total;
+	}
+	
+	
+	public Paiement getPaiement() {
+		return paiement;
+	}
+	public void setPaiement(Paiement paiement) {
+		this.paiement = paiement;
+	}
+	public Panier getPanier() {
+		return panier;
+	}
+	public void setPanier(Panier panier) {
+		this.panier = panier;
 	}
 	@Override
 	public String toString() {
