@@ -1,7 +1,14 @@
 package Test;
 
 import model.Caracteristique;
+import model.CompteUtilisateur;
+import model.Panier;
+import model.Produit;
+import model.ReferentielCaracteristique;
+import model.Selection;
 import model.TypeCarac;
+import model.TypeUtilisateur;
+import model.Utilisateur;
 import singleton.Application;
 
 public class Test_fonctions {
@@ -11,19 +18,19 @@ public class Test_fonctions {
 
 	}
 	public static void testCRUD() {
-		Caracteristique carac1 = new Caracteristique("taille","Haute",TypeCarac.Flore);
+		Utilisateur util1 = new Utilisateur(TypeUtilisateur.Fournisseur);
 
-		carac1 = Application.getInstance().getCaracteristiqueDao().save(carac1);
+		util1 = Application.getInstance().getUtilisateurDao().save(util1);
 		
-		System.out.println(Application.getInstance().getCaracteristiqueDao().find(carac1.getId()));
+		System.out.println(Application.getInstance().getUtilisateurDao().find(util1.getId()));
 
-		carac1.setNom("Allemagne");
-		carac1 = Application.getInstance().getCaracteristiqueDao().save(carac1);
-		System.out.println(Application.getInstance().getCaracteristiqueDao().find(carac1.getId()));
+		util1.setDisc(TypeUtilisateur.Administrateur);
+		util1 = Application.getInstance().getUtilisateurDao().save(util1);
+		System.out.println(Application.getInstance().getUtilisateurDao().find(util1.getId()));
 		
-		System.out.println(Application.getInstance().getCaracteristiqueDao().findAll());
-		Application.getInstance().getCaracteristiqueDao().delete(carac1);
-		System.out.println(Application.getInstance().getCaracteristiqueDao().findAll());
+		System.out.println(Application.getInstance().getUtilisateurDao().findAll());
+//		Application.getInstance().getUtilisateurDao().delete(util1);
+//		System.out.println(Application.getInstance().getUtilisateurDao().findAll());
 	}
 
 }
