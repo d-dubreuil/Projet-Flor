@@ -3,30 +3,36 @@ package Singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import DAO.JPA.AeroportDaoJpa;
-import DAO.JPA.AvionDaoJpa;
-import DAO.JPA.CompagnieDaoJpa;
+import DAO.JPA.CaracteristiqueDaoJpa;
+import DAO.JPA.CommandeDaoJpa;
+import DAO.JPA.CompteUtilisateurDaoJpa;
+import DAO.JPA.ConseilDaoJpa;
+import DAO.JPA.FauneDaoJpa;
+import DAO.JPA.FloreDaoJpa;
+import DAO.JPA.HistoriqueDaoJpa;
 import DAO.JPA.PaiementDaoJpa;
-import DAO.JPA.ParticulierDaoJpa;
-import DAO.JPA.PassagerDaoJpa;
-import DAO.JPA.ReservationDaoJpa;
-import DAO.JPA.SocieteDaoJpa;
-import DAO.JPA.TrajetDaoJpa;
+import DAO.JPA.PanierDaoJpa;
+import DAO.JPA.ProduitDaoJpa;
+import DAO.JPA.ReferentielCaracteristiqueDaoJpa;
+import DAO.JPA.ReferentielFauneDaoJpa;
+import DAO.JPA.ReferentielUtilisateurDaoJpa;
+import DAO.JPA.SelectionDaoJpa;
 import DAO.JPA.UtilisateurDaoJpa;
-import DAO.JPA.VilleDaoJpa;
-import DAO.JPA.VolDaoJpa;
-import DAO.interfaces.IAeroportDao;
-import DAO.interfaces.IAvionDao;
-import DAO.interfaces.ICompagnieDao;
+import DAO.interfaces.ICaracteristiqueDao;
+import DAO.interfaces.ICommandeDao;
+import DAO.interfaces.ICompteUtilisateurDao;
+import DAO.interfaces.IConseilDao;
+import DAO.interfaces.IFauneDao;
+import DAO.interfaces.IFloreDao;
+import DAO.interfaces.IHistoriqueDao;
 import DAO.interfaces.IPaiementDao;
-import DAO.interfaces.IParticulierDao;
-import DAO.interfaces.IPassagerDao;
-import DAO.interfaces.IReservationDao;
-import DAO.interfaces.ISocieteDao;
-import DAO.interfaces.ITrajetDao;
+import DAO.interfaces.IPanierDao;
+import DAO.interfaces.IProduitDao;
+import DAO.interfaces.IReferentielCaracteristiqueDao;
+import DAO.interfaces.IReferentielFauneDao;
+import DAO.interfaces.IReferentielUtilisateurDao;
+import DAO.interfaces.ISelectionDao;
 import DAO.interfaces.IUtilisateurDao;
-import DAO.interfaces.IVilleDao;
-import DAO.interfaces.IVolDao;
 
 
 
@@ -38,30 +44,112 @@ public class Application {
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("vol");
 
-	private final IAeroportDao aeroportDao = new AeroportDaoJpa();
+	private final ICaracteristiqueDao CaracteristiqueDao = new CaracteristiqueDaoJpa();
+	
+	private final ICommandeDao commandeDao = new CommandeDaoJpa();
 
-	private final IAvionDao avionDao = new AvionDaoJpa();
+	private final ICompteUtilisateurDao compteUtilisateurDao = new CompteUtilisateurDaoJpa();
 
-	private final ICompagnieDao compagnieDao = new CompagnieDaoJpa();
+	private final IConseilDao conseilDao = new ConseilDaoJpa();
+
+	private final IFauneDao fauneDao = new FauneDaoJpa();
+
+	private final IFloreDao floreDao = new FloreDaoJpa();
+
+	private final IHistoriqueDao historiqueDao = new HistoriqueDaoJpa();
 
 	private final IPaiementDao paiementDao = new PaiementDaoJpa();
 
-	private final IParticulierDao particulierDao = new ParticulierDaoJpa();
+	private final IPanierDao panierDao = new PanierDaoJpa();
 
-	private final IPassagerDao passagerDao = new PassagerDaoJpa();
-	
-	private final IReservationDao reservationDao = new ReservationDaoJpa();
-	
-	private final ISocieteDao societeDao = new SocieteDaoJpa();
+	private final IProduitDao produitDao = new ProduitDaoJpa();
 
-	private final ITrajetDao trajetDao = new TrajetDaoJpa();
-	
+	private final IReferentielCaracteristiqueDao referentielCaracteristiqueDao = new ReferentielCaracteristiqueDaoJpa();
+
+	private final IReferentielFauneDao referentielFauneDao = new ReferentielFauneDaoJpa();
+
+	private final IReferentielUtilisateurDao referentielUtilisateurDao = new ReferentielUtilisateurDaoJpa();
+
+	private final ISelectionDao selectionDao = new SelectionDaoJpa();
+
 	private final IUtilisateurDao utilisateurDao = new UtilisateurDaoJpa();
-	
-	private final IVilleDao villeDao = new VilleDaoJpa();
-	
-	private final IVolDao volDao = new VolDaoJpa();
-	
+
+
+
+
+	public ICaracteristiqueDao getCaracteristiqueDao() {
+		return CaracteristiqueDao;
+	}
+
+
+	public ICommandeDao getCommandeDao() {
+		return commandeDao;
+	}
+
+
+	public ICompteUtilisateurDao getCompteUtilisateurDao() {
+		return compteUtilisateurDao;
+	}
+
+
+	public IConseilDao getConseilDao() {
+		return conseilDao;
+	}
+
+
+	public IFauneDao getFauneDao() {
+		return fauneDao;
+	}
+
+
+	public IFloreDao getFloreDao() {
+		return floreDao;
+	}
+
+
+	public IHistoriqueDao getHistoriqueDao() {
+		return historiqueDao;
+	}
+
+
+	public IPaiementDao getPaiementDao() {
+		return paiementDao;
+	}
+
+
+	public IPanierDao getPanierDao() {
+		return panierDao;
+	}
+
+
+	public IProduitDao getProduitDao() {
+		return produitDao;
+	}
+
+
+	public IReferentielCaracteristiqueDao getReferentielCaracteristiqueDao() {
+		return referentielCaracteristiqueDao;
+	}
+
+
+	public IReferentielFauneDao getReferentielFauneDao() {
+		return referentielFauneDao;
+	}
+
+
+	public IReferentielUtilisateurDao getReferentielUtilisateurDao() {
+		return referentielUtilisateurDao;
+	}
+
+
+	public ISelectionDao getSelectionDao() {
+		return selectionDao;
+	}
+
+
+	public IUtilisateurDao getUtilisateurDao() {
+		return utilisateurDao;
+	}
 
 
 	private Application() {
@@ -89,65 +177,6 @@ public class Application {
 
 	}
 
-
-	public IAeroportDao getAeroportDao() {
-		return aeroportDao;
-	}
-
-
-	public IAvionDao getAvionDao() {
-		return avionDao;
-	}
-
-
-	public ICompagnieDao getCompagnieDao() {
-		return compagnieDao;
-	}
-
-
-	public IPaiementDao getPaiementDao() {
-		return paiementDao;
-	}
-
-
-	public IParticulierDao getParticulierDao() {
-		return particulierDao;
-	}
-
-
-	public IPassagerDao getPassagerDao() {
-		return passagerDao;
-	}
-
-
-	public IReservationDao getReservationDao() {
-		return reservationDao;
-	}
-
-
-	public ISocieteDao getSocieteDao() {
-		return societeDao;
-	}
-
-
-	public ITrajetDao getTrajetDao() {
-		return trajetDao;
-	}
-
-
-	public IUtilisateurDao getUtilisateurDao() {
-		return utilisateurDao;
-	}
-
-
-	public IVilleDao getVilleDao() {
-		return villeDao;
-	}
-
-
-	public IVolDao getVolDao() {
-		return volDao;
-	}
 
 
 	public static void setInstance(Application instance) {
