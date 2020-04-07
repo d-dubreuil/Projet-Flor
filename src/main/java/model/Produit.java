@@ -16,6 +16,9 @@ public class Produit {
 	private Long prix;
 	private String fournisseur;
 	private Integer stock;
+	private Faune faune;
+	private Flore flore;
+	private Selection selection;
 	
 	public Produit() {
 		super();
@@ -62,6 +65,25 @@ public class Produit {
 	}
 	public void setStock(Integer stock) {
 		this.stock = stock;
+	}
+	
+	public Faune getFaune() {
+		return faune;
+	}
+	public void setFaune(Faune faune) {
+		this.faune = faune;
+	}
+	public Flore getFlore() {
+		return flore;
+	}
+	public void setFlore(Flore flore) {
+		this.flore = flore;
+	}
+	public Selection getSelection() {
+		return selection;
+	}
+	public void setSelection(Selection selection) {
+		this.selection = selection;
 	}
 	@Override
 	public String toString() {

@@ -24,6 +24,7 @@ public class Paiement {
 	private Integer numeroCarte;
 	@Column()
 	private Long montant;
+	private Commande commande;
 
 	public Paiement() {
 		super();
@@ -57,6 +58,14 @@ public class Paiement {
 	}
 	public void setMontant(Long montant) {
 		this.montant = montant;
+	}
+	
+	
+	public Commande getCommande() {
+		return commande;
+	}
+	public void setCommande(Commande commande) {
+		this.commande = commande;
 	}
 	@Override
 	public String toString() {

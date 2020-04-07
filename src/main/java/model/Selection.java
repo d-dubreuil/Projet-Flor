@@ -13,6 +13,8 @@ public class Selection {
 	@Version
 	private int version;
 	private Integer total;
+	private Produit produit;
+	private Panier panier;
 	
 	public Selection() {
 		super();
@@ -42,6 +44,27 @@ public class Selection {
 	}
 	public void setTotal(Integer total) {
 		this.total = total;
+	}
+	
+
+
+	public Produit getProduit() {
+		return produit;
+	}
+
+
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+
+	public Panier getPanier() {
+		return panier;
+	}
+
+
+	public void setPanier(Panier panier) {
+		this.panier = panier;
 	}
 
 

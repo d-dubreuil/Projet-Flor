@@ -13,6 +13,7 @@ public class Faune {
 	@Version
 	private int version;
 	private String nomFaune;
+	private ReferentielFaune referentielFaune;
 	
 	public Faune() {
 		super();
@@ -38,6 +39,13 @@ public class Faune {
 	}
 	public void setNomFaune(String nomFaune) {
 		this.nomFaune = nomFaune;
+	}
+	
+	public ReferentielFaune getReferentielFaune() {
+		return referentielFaune;
+	}
+	public void setReferentielFaune(ReferentielFaune referentielFaune) {
+		this.referentielFaune = referentielFaune;
 	}
 	@Override
 	public String toString() {
