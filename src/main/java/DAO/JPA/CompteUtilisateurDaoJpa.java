@@ -24,7 +24,7 @@ public class CompteUtilisateurDaoJpa implements ICompteUtilisateurDao {
 			tx = em.getTransaction();
 			tx.begin();
 
-			TypedQuery<CompteUtilisateur> query = em.createQuery("CompteUtilisateur", CompteUtilisateur.class);
+			TypedQuery<CompteUtilisateur> query = em.createQuery("from CompteUtilisateur", CompteUtilisateur.class);
 
 			compteUtilisateurs = query.getResultList();
 

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,7 +23,7 @@ public class Utilisateur {
 	private Long id;
 	@Version
 	private int version;
-	private String type;
+	@Enumerated(EnumType.STRING)
 	private TypeUtilisateur disc;
 	@OneToOne
 	@JoinColumn(name="compteUtilisateurId")
@@ -39,9 +41,8 @@ public class Utilisateur {
 	public Utilisateur() {
 		super();
 	}
-	public Utilisateur(String type, TypeUtilisateur disc) {
+	public Utilisateur(TypeUtilisateur disc) {
 		super();
-		this.type = type;
 		this.disc = disc;
 	}
 	public Long getId() {
@@ -50,12 +51,7 @@ public class Utilisateur {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public TypeUtilisateur getDisc() {
 		return disc;
 	}
@@ -116,7 +112,7 @@ public class Utilisateur {
 	
 	@Override
 	public String toString() {
-		return "Utilisateur [id=" + id + ", type=" + type + ", disc=" + disc + "]";
+		return "Utilisateur [id=" + id + ", disc=" + disc + "]";
 	}
 	
 	
