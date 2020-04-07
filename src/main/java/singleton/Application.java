@@ -1,4 +1,4 @@
-package Singleton;
+package singleton;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,10 +34,6 @@ import DAO.interfaces.IReferentielUtilisateurDao;
 import DAO.interfaces.ISelectionDao;
 import DAO.interfaces.IUtilisateurDao;
 
-
-
-
-
 public class Application {
 
 	private static Application instance = null;
@@ -45,7 +41,7 @@ public class Application {
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("flore");
 
 	private final ICaracteristiqueDao CaracteristiqueDao = new CaracteristiqueDaoJpa();
-	
+
 	private final ICommandeDao commandeDao = new CommandeDaoJpa();
 
 	private final ICompteUtilisateurDao compteUtilisateurDao = new CompteUtilisateurDaoJpa();
@@ -74,88 +70,69 @@ public class Application {
 
 	private final IUtilisateurDao utilisateurDao = new UtilisateurDaoJpa();
 
-
-
-
 	public ICaracteristiqueDao getCaracteristiqueDao() {
 		return CaracteristiqueDao;
 	}
-
 
 	public ICommandeDao getCommandeDao() {
 		return commandeDao;
 	}
 
-
 	public ICompteUtilisateurDao getCompteUtilisateurDao() {
 		return compteUtilisateurDao;
 	}
-
 
 	public IConseilDao getConseilDao() {
 		return conseilDao;
 	}
 
-
 	public IFauneDao getFauneDao() {
 		return fauneDao;
 	}
-
 
 	public IFloreDao getFloreDao() {
 		return floreDao;
 	}
 
-
 	public IHistoriqueDao getHistoriqueDao() {
 		return historiqueDao;
 	}
-
 
 	public IPaiementDao getPaiementDao() {
 		return paiementDao;
 	}
 
-
 	public IPanierDao getPanierDao() {
 		return panierDao;
 	}
-
 
 	public IProduitDao getProduitDao() {
 		return produitDao;
 	}
 
-
 	public IReferentielCaracteristiqueDao getReferentielCaracteristiqueDao() {
 		return referentielCaracteristiqueDao;
 	}
-
 
 	public IReferentielFauneDao getReferentielFauneDao() {
 		return referentielFauneDao;
 	}
 
-
 	public IReferentielUtilisateurDao getReferentielUtilisateurDao() {
 		return referentielUtilisateurDao;
 	}
-
 
 	public ISelectionDao getSelectionDao() {
 		return selectionDao;
 	}
 
-
 	public IUtilisateurDao getUtilisateurDao() {
 		return utilisateurDao;
 	}
 
-
 	private Application() {
 
 	}
-
 
 	public static Application getInstance() {
 
@@ -165,11 +142,9 @@ public class Application {
 
 		}
 
-
 		return instance;
 
 	}
-
 
 	public EntityManagerFactory getEmf() {
 
@@ -177,14 +152,8 @@ public class Application {
 
 	}
 
-
-
 	public static void setInstance(Application instance) {
 		Application.instance = instance;
 	}
 
-
-
-
 }
-

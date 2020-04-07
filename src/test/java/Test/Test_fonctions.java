@@ -1,8 +1,8 @@
 package Test;
 
-import Singleton.Application;
 import model.Caracteristique;
 import model.TypeCarac;
+import singleton.Application;
 
 public class Test_fonctions {
 
