@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,7 +22,7 @@ public class Panier {
 	private int version;
 	private Float total;
 	@OneToOne(mappedBy = "panier")
-	private List<Commande> commandes= new ArrayList<Commande>();
+	private Commande commande;
 	@OneToMany(mappedBy = "panier")
 	private List<Selection> selections= new ArrayList<Selection>();
 	@ManyToOne
@@ -59,13 +58,14 @@ public class Panier {
 	}
 	
 	
-	public List<Commande> getCommandes() {
-		return commandes;
-	}
-	public void setCommandes(List<Commande> commandes) {
-		this.commandes = commandes;
-	}
 
+
+	public Commande getCommande() {
+		return commande;
+	}
+	public void setCommande(Commande commande) {
+		this.commande = commande;
+	}
 	public List<Selection> getSelections() {
 		return selections;
 	}
@@ -82,9 +82,7 @@ public class Panier {
 	public void addSelection(Selection selection) {
 		this.selections.add(selection);
 	}
-	public void addCommande(Commande commande) {
-		this.commandes.add(commande);
-	}
+
 	@Override
 	public String toString() {
 		return "Panier [id=" + id + ", version=" + version + ", total=" + total + "]";

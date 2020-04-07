@@ -22,7 +22,7 @@ public class Flore {
 	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();
 	@OneToMany (mappedBy = "flore")
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
-	@ManyToMany(mappedBy = "flore")
+	@ManyToMany(mappedBy = "flores")
 	private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 	@OneToMany (mappedBy = "flore")
 	private List<Produit> produits= new ArrayList<Produit>();

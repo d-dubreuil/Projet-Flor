@@ -34,7 +34,7 @@ public class Utilisateur {
 	private List<Produit> produits= new ArrayList<Produit>();
 	@ManyToMany
 	@JoinTable (name = "recherches",joinColumns = @JoinColumn(name="utilisateur_id"),inverseJoinColumns = @JoinColumn(name="flore_id"))
-	private Flore flore;
+	private List<Flore> flores = new ArrayList<Flore>();
 	
 	public Utilisateur() {
 		super();
@@ -94,13 +94,16 @@ public class Utilisateur {
 	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
 	}
-	public Flore getFlore() {
-		return flore;
-	}
-	public void setFlore(Flore flore) {
-		this.flore = flore;
+	public void addFlores (Flore flore) {
+		this.flores.add(flore);
 	}
 	
+	public List<Flore> getFlores() {
+		return flores;
+	}
+	public void setFlores(List<Flore> flores) {
+		this.flores = flores;
+	}
 	public void addConseil(Conseil conseil) {
 		this.conseils.add(conseil);
 	}

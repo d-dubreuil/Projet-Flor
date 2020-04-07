@@ -20,7 +20,7 @@ public class Commande {
 	@JoinColumn(name = "paiement_id")
 	private Paiement paiement;
 	@OneToOne
-	@JoinColumn(name = "pannier_id")
+	@JoinColumn(name = "panier_id")
 	private Panier panier;
 	private String typeEnvoi;
 	private Float total;
