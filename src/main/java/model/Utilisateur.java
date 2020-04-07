@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
+
 
 @Entity
 public class Utilisateur {
@@ -23,11 +27,11 @@ public class Utilisateur {
 	@JoinColumn(name="compteUtilisateurId")
 	private CompteUtilisateur compteUtilisateur;
 	@OneToMany (mappedBy = "utilisateur")
-	private Conseil conseil;
+	private List<Conseil> conseils= new ArrayList<Conseil>();
 	@OneToMany (mappedBy = "utilisateur")
-	private Panier panier;
+	private List<Panier> paniers= new ArrayList<Panier>();
 	@OneToMany (mappedBy = "utilisateur")
-	private Produit produit;
+	private List<Produit> produits= new ArrayList<Produit>();
 	@ManyToMany
 	@JoinTable (name = "recherches",joinColumns = @JoinColumn(name="utilisateur_id"),inverseJoinColumns = @JoinColumn(name="flore_id"))
 	private Flore flore;
@@ -64,23 +68,31 @@ public class Utilisateur {
 	public void setCompteUtilisateur(CompteUtilisateur compteUtilisateur) {
 		this.compteUtilisateur = compteUtilisateur;
 	}
-	public Conseil getConseil() {
-		return conseil;
+
+	public int getVersion() {
+		return version;
 	}
-	public void setConseil(Conseil conseil) {
-		this.conseil = conseil;
+	public void setVersion(int version) {
+		this.version = version;
 	}
-	public Panier getPanier() {
-		return panier;
+
+	public List<Conseil> getConseils() {
+		return conseils;
 	}
-	public void setPanier(Panier panier) {
-		this.panier = panier;
+	public void setConseils(List<Conseil> conseils) {
+		this.conseils = conseils;
 	}
-	public Produit getProduit() {
-		return produit;
+	public List<Panier> getPaniers() {
+		return paniers;
 	}
-	public void setProduit(Produit produit) {
-		this.produit = produit;
+	public void setPaniers(List<Panier> paniers) {
+		this.paniers = paniers;
+	}
+	public List<Produit> getProduits() {
+		return produits;
+	}
+	public void setProduits(List<Produit> produits) {
+		this.produits = produits;
 	}
 	public Flore getFlore() {
 		return flore;
@@ -88,6 +100,17 @@ public class Utilisateur {
 	public void setFlore(Flore flore) {
 		this.flore = flore;
 	}
+	
+	public void addConseil(Conseil conseil) {
+		this.conseils.add(conseil);
+	}
+	public void addProduit(Produit produit) {
+		this.produits.add(produit);
+	}
+	public void addPanier(Panier panier) {
+		this.paniers.add(panier);
+	}
+	
 	@Override
 	public String toString() {
 		return "Utilisateur [id=" + id + ", type=" + type + ", disc=" + disc + "]";

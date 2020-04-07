@@ -3,9 +3,13 @@ package model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 
 @Entity
 public class ReferentielUtilisateur {
+	
+	@Version
+	private int version;
 	@ManyToOne
 	@JoinColumn (name = "compteUtilisateurId")
 	private CompteUtilisateur compteUtilisateur;
@@ -24,6 +28,12 @@ public class ReferentielUtilisateur {
 	}
 	public void setCaracteristique(Caracteristique caracteristique) {
 		this.caracteristique = caracteristique;
+	}
+	public int getVersion() {
+		return version;
+	}
+	public void setVersion(int version) {
+		this.version = version;
 	}
 	
 	
