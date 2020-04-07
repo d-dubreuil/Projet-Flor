@@ -1,8 +1,21 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class ReferentielFaune {
+	@ManyToOne
+	@JoinColumn(name = "caracteristique_id")
 	private Caracteristique caracteristique;
+	@ManyToOne
+	@JoinColumn(name = "flore_id")
 	private Flore flore;
+	@ManyToOne
+	@JoinColumn(name = "faune_id")
 	private Faune faune;
 	
 	public Caracteristique getCaracteristique() {
