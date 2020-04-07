@@ -11,6 +11,13 @@ import DAO.JPA.FauneDaoJpa;
 import DAO.JPA.FloreDaoJpa;
 import DAO.JPA.HistoriqueDaoJpa;
 import DAO.JPA.PaiementDaoJpa;
+import DAO.JPA.PanierDaoJpa;
+import DAO.JPA.ProduitDaoJpa;
+import DAO.JPA.ReferentielCaracteristiqueDaoJpa;
+import DAO.JPA.ReferentielFauneDaoJpa;
+import DAO.JPA.ReferentielUtilisateurDaoJpa;
+import DAO.JPA.SelectionDaoJpa;
+import DAO.JPA.UtilisateurDaoJpa;
 import DAO.interfaces.ICaracteristiqueDao;
 import DAO.interfaces.ICommandeDao;
 import DAO.interfaces.ICompteUtilisateurDao;
@@ -20,6 +27,12 @@ import DAO.interfaces.IFloreDao;
 import DAO.interfaces.IHistoriqueDao;
 import DAO.interfaces.IPaiementDao;
 import DAO.interfaces.IPanierDao;
+import DAO.interfaces.IProduitDao;
+import DAO.interfaces.IReferentielCaracteristiqueDao;
+import DAO.interfaces.IReferentielFauneDao;
+import DAO.interfaces.IReferentielUtilisateurDao;
+import DAO.interfaces.ISelectionDao;
+import DAO.interfaces.IUtilisateurDao;
 
 
 
@@ -47,21 +60,96 @@ public class Application {
 
 	private final IPaiementDao paiementDao = new PaiementDaoJpa();
 
-	private final IPanierDao panierDao = new CaracteristiqueDaoJpa();
+	private final IPanierDao panierDao = new PanierDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final IProduitDao produitDao = new ProduitDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final IReferentielCaracteristiqueDao referentielCaracteristiqueDao = new ReferentielCaracteristiqueDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final IReferentielFauneDao referentielFauneDao = new ReferentielFauneDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final IReferentielUtilisateurDao referentielUtilisateurDao = new ReferentielUtilisateurDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final ISelectionDao selectionDao = new SelectionDaoJpa();
 
-	private final ICaracteristiqueDao aeroportDao = new CaracteristiqueDaoJpa();
+	private final IUtilisateurDao utilisateurDao = new UtilisateurDaoJpa();
 
 
+
+
+	public ICaracteristiqueDao getCaracteristiqueDao() {
+		return CaracteristiqueDao;
+	}
+
+
+	public ICommandeDao getCommandeDao() {
+		return commandeDao;
+	}
+
+
+	public ICompteUtilisateurDao getCompteUtilisateurDao() {
+		return compteUtilisateurDao;
+	}
+
+
+	public IConseilDao getConseilDao() {
+		return conseilDao;
+	}
+
+
+	public IFauneDao getFauneDao() {
+		return fauneDao;
+	}
+
+
+	public IFloreDao getFloreDao() {
+		return floreDao;
+	}
+
+
+	public IHistoriqueDao getHistoriqueDao() {
+		return historiqueDao;
+	}
+
+
+	public IPaiementDao getPaiementDao() {
+		return paiementDao;
+	}
+
+
+	public IPanierDao getPanierDao() {
+		return panierDao;
+	}
+
+
+	public IProduitDao getProduitDao() {
+		return produitDao;
+	}
+
+
+	public IReferentielCaracteristiqueDao getReferentielCaracteristiqueDao() {
+		return referentielCaracteristiqueDao;
+	}
+
+
+	public IReferentielFauneDao getReferentielFauneDao() {
+		return referentielFauneDao;
+	}
+
+
+	public IReferentielUtilisateurDao getReferentielUtilisateurDao() {
+		return referentielUtilisateurDao;
+	}
+
+
+	public ISelectionDao getSelectionDao() {
+		return selectionDao;
+	}
+
+
+	public IUtilisateurDao getUtilisateurDao() {
+		return utilisateurDao;
+	}
 
 
 	private Application() {
