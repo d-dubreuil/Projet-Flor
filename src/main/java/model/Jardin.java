@@ -24,7 +24,7 @@ public class Jardin {
 	@JoinTable (name = "Plante_Jardin",joinColumns = @JoinColumn(name="jardin_id"),inverseJoinColumns = @JoinColumn(name="flore_id"))
 	private List<Flore> flores = new ArrayList<Flore>();
 	@OneToOne
-	@JoinColumn (name = "compteUtilisateru_id")
+	@JoinColumn (name = "compteUtilisateur_id")
 	private CompteUtilisateur compteUtilisateur;
 	public Jardin(String nom) {
 		super();
@@ -60,6 +60,10 @@ public class Jardin {
 	public void setCompteUtilisateur(CompteUtilisateur compteUtilisateur) {
 		this.compteUtilisateur = compteUtilisateur;
 	}
+	@Override
+	public String toString() {
+		return "Jardin [id=" + id + ", nom=" + nom + "]";
+	}
 	
-
+	
 }

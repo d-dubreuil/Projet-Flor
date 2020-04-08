@@ -3,36 +3,40 @@ package singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import DAO.JPA.CaracteristiqueDaoJpa;
-import DAO.JPA.CommandeDaoJpa;
-import DAO.JPA.CompteUtilisateurDaoJpa;
-import DAO.JPA.ConseilDaoJpa;
-import DAO.JPA.FauneDaoJpa;
-import DAO.JPA.FloreDaoJpa;
-import DAO.JPA.HistoriqueDaoJpa;
-import DAO.JPA.PaiementDaoJpa;
-import DAO.JPA.PanierDaoJpa;
-import DAO.JPA.ProduitDaoJpa;
-import DAO.JPA.ReferentielCaracteristiqueDaoJpa;
-import DAO.JPA.ReferentielFauneDaoJpa;
-import DAO.JPA.ReferentielUtilisateurDaoJpa;
-import DAO.JPA.SelectionDaoJpa;
-import DAO.JPA.UtilisateurDaoJpa;
-import DAO.interfaces.ICaracteristiqueDao;
-import DAO.interfaces.ICommandeDao;
-import DAO.interfaces.ICompteUtilisateurDao;
-import DAO.interfaces.IConseilDao;
-import DAO.interfaces.IFauneDao;
-import DAO.interfaces.IFloreDao;
-import DAO.interfaces.IHistoriqueDao;
-import DAO.interfaces.IPaiementDao;
-import DAO.interfaces.IPanierDao;
-import DAO.interfaces.IProduitDao;
-import DAO.interfaces.IReferentielCaracteristiqueDao;
-import DAO.interfaces.IReferentielFauneDao;
-import DAO.interfaces.IReferentielUtilisateurDao;
-import DAO.interfaces.ISelectionDao;
-import DAO.interfaces.IUtilisateurDao;
+import dao.interfaces.ICaracteristiqueDao;
+import dao.interfaces.ICommandeDao;
+import dao.interfaces.ICompteUtilisateurDao;
+import dao.interfaces.IConseilDao;
+import dao.interfaces.IFauneDao;
+import dao.interfaces.IFavorisDao;
+import dao.interfaces.IFloreDao;
+import dao.interfaces.IHistoriqueDao;
+import dao.interfaces.IJardinDao;
+import dao.interfaces.IPaiementDao;
+import dao.interfaces.IPanierDao;
+import dao.interfaces.IProduitDao;
+import dao.interfaces.IReferentielCaracteristiqueDao;
+import dao.interfaces.IReferentielFauneDao;
+import dao.interfaces.IReferentielUtilisateurDao;
+import dao.interfaces.ISelectionDao;
+import dao.interfaces.IUtilisateurDao;
+import dao.jpa.CaracteristiqueDaoJpa;
+import dao.jpa.CommandeDaoJpa;
+import dao.jpa.CompteUtilisateurDaoJpa;
+import dao.jpa.ConseilDaoJpa;
+import dao.jpa.FauneDaoJpa;
+import dao.jpa.FavorisDaoJpa;
+import dao.jpa.FloreDaoJpa;
+import dao.jpa.HistoriqueDaoJpa;
+import dao.jpa.JardinDaoJpa;
+import dao.jpa.PaiementDaoJpa;
+import dao.jpa.PanierDaoJpa;
+import dao.jpa.ProduitDaoJpa;
+import dao.jpa.ReferentielCaracteristiqueDaoJpa;
+import dao.jpa.ReferentielFauneDaoJpa;
+import dao.jpa.ReferentielUtilisateurDaoJpa;
+import dao.jpa.SelectionDaoJpa;
+import dao.jpa.UtilisateurDaoJpa;
 
 public class Application {
 
@@ -69,6 +73,10 @@ public class Application {
 	private final ISelectionDao selectionDao = new SelectionDaoJpa();
 
 	private final IUtilisateurDao utilisateurDao = new UtilisateurDaoJpa();
+
+	private final IFavorisDao favorisDao = new FavorisDaoJpa();
+
+	private final IJardinDao jardinDao = new JardinDaoJpa();
 
 	public ICaracteristiqueDao getCaracteristiqueDao() {
 		return caracteristiqueDao;
@@ -128,6 +136,14 @@ public class Application {
 
 	public IUtilisateurDao getUtilisateurDao() {
 		return utilisateurDao;
+	}
+
+	public IFavorisDao getFavorisDao() {
+		return favorisDao;
+	}
+
+	public IJardinDao getJardinDao() {
+		return jardinDao;
 	}
 
 	private Application() {
