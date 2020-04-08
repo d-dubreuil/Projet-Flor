@@ -148,7 +148,6 @@ public class Test_vide {
 		prod1 = produitDao.save(prod1);
 		prod1.setFlore(fraisier);
 		prod1.setFaune(limace);
-//		prod1.setFournisseur(fournisseur);
 		prod1.setUtilisateur(contrib1);
 		prod1 = produitDao.save(prod1);
 
@@ -178,20 +177,14 @@ public class Test_vide {
 		fav1.addFlore(fraisier);
 		fav1 = favorisDao.save(fav1);
 		
-		fraisier.addFavoris(fav1);
-		fraisier = floreDao.save(fraisier);
-
 		Jardin jar1 = new Jardin("Mon petit jardin");
 		jar1 = jardinDao.save(jar1);
-//		compte1.setJardin(jar1);
-//		compte1 = compteUtilisateurDao.save(compte1);
-//		jar1.setCompteUtilisateur(compte1);
-//		jar1.addFlores(fraisier);
-//		jar1 = jardinDao.save(jar1);
-//		
-//		fraisier.addJardins(jar1);
-//		fraisier = floreDao.save(fraisier);
+		jar1.setCompteUtilisateur(compte1);
+		jar1.addFlores(fraisier);
+		jar1 = jardinDao.save(jar1);
 
+		contrib1.addFlores(fraisier);
+		contrib1=utilisateurDao.save(contrib1);
 	}
 
 }
