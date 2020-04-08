@@ -102,8 +102,8 @@ public class Flore {
 	public void setFavoris(List<Favoris> favoris) {
 		this.favoris = favoris;
 	}
-	public void addFavoris (Favoris favoris) {
-		this.favoris.add(favoris);
+	public void addFavoris (Favoris favori) {
+		this.favoris.add(favori);
 	}
 	public List<Jardin> getJardins() {
 		return jardins;
