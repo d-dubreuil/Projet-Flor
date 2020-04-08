@@ -19,7 +19,7 @@ public class Produit {
 	@Version
 	private int version;
 	private Integer refProduit;
-	private Long prix;
+	private Float prix;
 	private String fournisseur;
 	private Integer stock;
 	@ManyToOne
@@ -37,7 +37,7 @@ public class Produit {
 	public Produit() {
 		super();
 	}
-	public Produit(Integer refProduit, Long prix, String fournisseur, Integer stock) {
+	public Produit(Integer refProduit, Float prix, String fournisseur, Integer stock) {
 		super();
 		this.refProduit = refProduit;
 		this.prix = prix;
@@ -62,10 +62,10 @@ public class Produit {
 	public void setRefProduit(Integer refProduit) {
 		this.refProduit = refProduit;
 	}
-	public Long getPrix() {
+	public Float getPrix() {
 		return prix;
 	}
-	public void setPrix(Long prix) {
+	public void setPrix(Float prix) {
 		this.prix = prix;
 	}
 	public String getFournisseur() {
