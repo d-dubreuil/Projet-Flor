@@ -1,22 +1,24 @@
 package Test;
 
-import dao.interfaces.ICaracteristiqueDao;
-import dao.interfaces.ICommandeDao;
-import dao.interfaces.ICompteUtilisateurDao;
-import dao.interfaces.IConseilDao;
-import dao.interfaces.IFauneDao;
-import dao.interfaces.IFavorisDao;
-import dao.interfaces.IFloreDao;
-import dao.interfaces.IHistoriqueDao;
-import dao.interfaces.IJardinDao;
-import dao.interfaces.IPaiementDao;
-import dao.interfaces.IPanierDao;
-import dao.interfaces.IProduitDao;
-import dao.interfaces.IReferentielCaracteristiqueDao;
-import dao.interfaces.IReferentielFauneDao;
-import dao.interfaces.IReferentielUtilisateurDao;
-import dao.interfaces.ISelectionDao;
-import dao.interfaces.IUtilisateurDao;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import dao.interfaces.ICaracteristiqueRepository;
+import dao.interfaces.ICommandeRepository;
+import dao.interfaces.ICompteUtilisateurRepository;
+import dao.interfaces.IConseilRepository;
+import dao.interfaces.IFauneRepository;
+import dao.interfaces.IFavorisRepository;
+import dao.interfaces.IFloreRepository;
+import dao.interfaces.IHistoriqueRepository;
+import dao.interfaces.IJardinRepository;
+import dao.interfaces.IPaiementRepository;
+import dao.interfaces.IPanierRepository;
+import dao.interfaces.IProduitRepository;
+import dao.interfaces.IReferentielCaracteristiqueRepository;
+import dao.interfaces.IReferentielFauneRepository;
+import dao.interfaces.IReferentielUtilisateurRepository;
+import dao.interfaces.ISelectionRepository;
+import dao.interfaces.IUtilisateurRepository;
 import model.Caracteristique;
 import model.Commande;
 import model.CompteUtilisateur;
@@ -36,29 +38,32 @@ import model.Selection;
 import model.TypeCarac;
 import model.TypeUtilisateur;
 import model.Utilisateur;
-import singleton.Application;
+
 
 public class Test_vide {
 
 	public static void main(String[] args) {
-		ICaracteristiqueDao caracteristiqueDao = Application.getInstance().getCaracteristiqueDao();
-		ICommandeDao commandeDao = Application.getInstance().getCommandeDao();
-		ICompteUtilisateurDao compteUtilisateurDao = Application.getInstance().getCompteUtilisateurDao();
-		IConseilDao conseilDao = Application.getInstance().getConseilDao();
-		IFauneDao fauneDao = Application.getInstance().getFauneDao();
-		IFloreDao floreDao = Application.getInstance().getFloreDao();
-		IHistoriqueDao historiqueDao = Application.getInstance().getHistoriqueDao();
-		IPaiementDao paiementDao = Application.getInstance().getPaiementDao();
-		IProduitDao produitDao = Application.getInstance().getProduitDao();
-		IReferentielCaracteristiqueDao referentielCaracteristiqueDao = Application.getInstance()
-				.getReferentielCaracteristiqueDao();
-		IReferentielFauneDao referentielFauneDao = Application.getInstance().getReferentielFauneDao();
-		IReferentielUtilisateurDao referentielUtilisateurDao = Application.getInstance().getReferentielUtilisateurDao();
-		ISelectionDao selectionDao = Application.getInstance().getSelectionDao();
-		IUtilisateurDao utilisateurDao = Application.getInstance().getUtilisateurDao();
-		IPanierDao panierDao = Application.getInstance().getPanierDao();
-		IFavorisDao favorisDao = Application.getInstance().getFavorisDao();
-		IJardinDao jardinDao = Application.getInstance().getJardinDao();
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+		
+		
+		ICaracteristiqueRepository caracteristiqueDao = context.getBean(ICaracteristiqueRepository.class);
+		ICommandeRepository commandeDao = context.getBean(ICommandeRepository.class);
+		ICompteUtilisateurRepository compteUtilisateurDao = context.getBean(ICompteUtilisateurRepository.class);
+		IConseilRepository conseilDao = context.getBean(IConseilRepository.class);
+		IFauneRepository fauneDao = context.getBean(IFauneRepository.class);
+		IFloreRepository floreDao = context.getBean(IFloreRepository.class);
+		IHistoriqueRepository historiqueDao = context.getBean(IHistoriqueRepository.class);
+		IPaiementRepository paiementDao = context.getBean(IPaiementRepository.class);
+		IProduitRepository produitDao = context.getBean(IProduitRepository.class);
+		IReferentielCaracteristiqueRepository referentielCaracteristiqueDao = context.getBean(IReferentielCaracteristiqueRepository.class);
+		IReferentielFauneRepository referentielFauneDao = context.getBean(IReferentielFauneRepository.class);
+		IReferentielUtilisateurRepository referentielUtilisateurDao = context.getBean(IReferentielUtilisateurRepository.class);
+		ISelectionRepository selectionDao = context.getBean(ISelectionRepository.class);
+		IUtilisateurRepository utilisateurDao = context.getBean(IUtilisateurRepository.class);
+		IPanierRepository panierDao = context.getBean(IPanierRepository.class);
+		IFavorisRepository favorisDao = context.getBean(IFavorisRepository.class);
+		IJardinRepository jardinDao = context.getBean(IJardinRepository.class);
 
 		Historique historique1 = new Historique("faune", "fraises");
 
@@ -185,6 +190,8 @@ public class Test_vide {
 
 		contrib1.addFlores(fraisier);
 		contrib1=utilisateurDao.save(contrib1);
+		
+		context.close();
 	}
 
 }
