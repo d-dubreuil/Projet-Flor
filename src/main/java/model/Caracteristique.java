@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,50 +20,57 @@ public class Caracteristique {
 	private int version;
 	private String nom;
 	private String valeur;
+	@Enumerated(EnumType.STRING)
 	private TypeCarac typeCarac;
-	@OneToMany (mappedBy = "caracteristique")
-	private List <ReferentielUtilisateur> referentielUtilisateurs = new ArrayList <ReferentielUtilisateur>();
-	@OneToMany (mappedBy = "caracteristique")
-	private List <ReferentielCaracteristique> referentielCaracteristiques = new ArrayList <ReferentielCaracteristique>();
-	@OneToMany (mappedBy = "caracteristique")
-	private List <ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
-		
+	@OneToMany(mappedBy = "caracteristique")
+	private List<ReferentielUtilisateur> referentielUtilisateurs = new ArrayList<ReferentielUtilisateur>();
+	@OneToMany(mappedBy = "caracteristique")
+	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();
+	@OneToMany(mappedBy = "caracteristique")
+	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
+
 	public Caracteristique() {
 		super();
 	}
-	
+
 	public Caracteristique(String nom, String valeur, TypeCarac typeCarac) {
 		super();
 		this.nom = nom;
 		this.valeur = valeur;
 		this.typeCarac = typeCarac;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getValeur() {
 		return valeur;
 	}
+
 	public void setValeur(String valeur) {
 		this.valeur = valeur;
 	}
+
 	public TypeCarac getTypeCarac() {
 		return typeCarac;
 	}
+
 	public void setTypeCarac(TypeCarac typeCarac) {
 		this.typeCarac = typeCarac;
 	}
-
 
 	public int getVersion() {
 		return version;
@@ -78,8 +87,8 @@ public class Caracteristique {
 	public void setReferentielUtilisateur(List<ReferentielUtilisateur> referentielUtilisateur) {
 		this.referentielUtilisateurs = referentielUtilisateur;
 	}
-	
-	public void addReferentielUtilisateur (ReferentielUtilisateur referentielUtilisateur) {
+
+	public void addReferentielUtilisateur(ReferentielUtilisateur referentielUtilisateur) {
 		this.referentielUtilisateurs.add(referentielUtilisateur);
 	}
 
@@ -90,7 +99,8 @@ public class Caracteristique {
 	public void setReferentielCaracteristique(List<ReferentielCaracteristique> referentielCaracteristique) {
 		this.referentielCaracteristiques = referentielCaracteristique;
 	}
-	public void addReferentielCaracteristique (ReferentielCaracteristique referentielCaracteristique) {
+
+	public void addReferentielCaracteristique(ReferentielCaracteristique referentielCaracteristique) {
 		this.referentielCaracteristiques.add(referentielCaracteristique);
 	}
 
@@ -101,8 +111,8 @@ public class Caracteristique {
 	public void setReferentielFaune(List<ReferentielFaune> referentielFaune) {
 		this.referentielFaunes = referentielFaune;
 	}
-	
-	public void addReferentielFaune (ReferentielFaune referentielFaune) {
+
+	public void addReferentielFaune(ReferentielFaune referentielFaune) {
 		this.referentielFaunes.add(referentielFaune);
 	}
 
@@ -110,6 +120,5 @@ public class Caracteristique {
 	public String toString() {
 		return "Caracteristique [id=" + id + ", nom=" + nom + ", valeur=" + valeur + ", typeCarac=" + typeCarac + "]";
 	}
-	
-	
+
 }

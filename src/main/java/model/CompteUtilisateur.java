@@ -32,6 +32,11 @@ public class CompteUtilisateur {
 	private Utilisateur utilisateur;
 	@OneToMany (mappedBy = "compteUtilisateur")
 	private List <ReferentielUtilisateur> referentielUtiliseurs = new ArrayList<ReferentielUtilisateur>();
+	@OneToMany (mappedBy = "compteUtilisateur")
+	private List <Favoris> favoris = new ArrayList<Favoris>();
+	@OneToOne (mappedBy = "compteUtilisateur")
+	private Jardin jardin;	
+	
 	
 	public CompteUtilisateur() {
 		super();
@@ -140,6 +145,21 @@ public class CompteUtilisateur {
 	}
 	public void addReferentielUtilisateur (ReferentielUtilisateur referentielUtiliseur) {
 		this.referentielUtiliseurs.add(referentielUtiliseur);
+	}
+	public List<Favoris> getFavoris() {
+		return favoris;
+	}
+	public void setFavoris(List<Favoris> favoris) {
+		this.favoris = favoris;
+	}
+	public void addFavoris (Favoris favori) {
+		this.favoris.add(favori);		
+	}
+	public Jardin getJardin() {
+		return jardin;
+	}
+	public void setJardin(Jardin jardin) {
+		this.jardin = jardin;
 	}
 	@Override
 	public String toString() {

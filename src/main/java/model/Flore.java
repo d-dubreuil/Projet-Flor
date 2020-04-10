@@ -26,6 +26,11 @@ public class Flore {
 	private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 	@OneToMany (mappedBy = "flore")
 	private List<Produit> produits= new ArrayList<Produit>();
+	@ManyToMany (mappedBy = "flores")
+	private List<Favoris>favoris = new ArrayList<Favoris>();
+	@ManyToMany (mappedBy = "flores")
+	private List<Jardin>jardins = new ArrayList<Jardin>();
+	
 	
 	public Flore() {
 		super();
@@ -89,6 +94,25 @@ public class Flore {
 	}
 	public void addProduits (Produit produit) {
 		this.produits.add(produit);
+	}
+	
+	public List<Favoris> getFavoris() {
+		return favoris;
+	}
+	public void setFavoris(List<Favoris> favoris) {
+		this.favoris = favoris;
+	}
+	public void addFavoris (Favoris favori) {
+		this.favoris.add(favori);
+	}
+	public List<Jardin> getJardins() {
+		return jardins;
+	}
+	public void setJardins(List<Jardin> jardins) {
+		this.jardins = jardins;
+	}
+	public void addJardins (Jardin jardin) {
+		this.jardins.add(jardin);
 	}
 	@Override
 	public String toString() {
