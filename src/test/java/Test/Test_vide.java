@@ -39,14 +39,12 @@ import model.TypeCarac;
 import model.TypeUtilisateur;
 import model.Utilisateur;
 
-
 public class Test_vide {
 
 	public static void main(String[] args) {
-		
+
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-		
-		
+
 		ICaracteristiqueRepository caracteristiqueDao = context.getBean(ICaracteristiqueRepository.class);
 		ICommandeRepository commandeDao = context.getBean(ICommandeRepository.class);
 		ICompteUtilisateurRepository compteUtilisateurDao = context.getBean(ICompteUtilisateurRepository.class);
@@ -56,9 +54,11 @@ public class Test_vide {
 		IHistoriqueRepository historiqueDao = context.getBean(IHistoriqueRepository.class);
 		IPaiementRepository paiementDao = context.getBean(IPaiementRepository.class);
 		IProduitRepository produitDao = context.getBean(IProduitRepository.class);
-		IReferentielCaracteristiqueRepository referentielCaracteristiqueDao = context.getBean(IReferentielCaracteristiqueRepository.class);
+		IReferentielCaracteristiqueRepository referentielCaracteristiqueDao = context
+				.getBean(IReferentielCaracteristiqueRepository.class);
 		IReferentielFauneRepository referentielFauneDao = context.getBean(IReferentielFauneRepository.class);
-		IReferentielUtilisateurRepository referentielUtilisateurDao = context.getBean(IReferentielUtilisateurRepository.class);
+		IReferentielUtilisateurRepository referentielUtilisateurDao = context
+				.getBean(IReferentielUtilisateurRepository.class);
 		ISelectionRepository selectionDao = context.getBean(ISelectionRepository.class);
 		IUtilisateurRepository utilisateurDao = context.getBean(IUtilisateurRepository.class);
 		IPanierRepository panierDao = context.getBean(IPanierRepository.class);
@@ -181,7 +181,7 @@ public class Test_vide {
 		fav1.setCompteUtilisateur(compte1);
 		fav1.addFlore(fraisier);
 		fav1 = favorisDao.save(fav1);
-		
+
 		Jardin jar1 = new Jardin("Mon petit jardin");
 		jar1 = jardinDao.save(jar1);
 		jar1.setCompteUtilisateur(compte1);
@@ -189,7 +189,19 @@ public class Test_vide {
 		jar1 = jardinDao.save(jar1);
 
 		contrib1.addFlores(fraisier);
-		contrib1=utilisateurDao.save(contrib1);
+		contrib1 = utilisateurDao.save(contrib1);
+
+		Flore basilic = new Flore("Basilic pourpre");
+		basilic = floreDao.save(basilic);
+		
+//		List<Flore> fraisierfind = new ArrayList<Flore>();
+//		fraisierfind = floreDao.findByNom("Fraisier mariguette");
+//		System.out.println(fraisierfind);
+
+		Flore fraisierfind = new Flore();
+		fraisierfind = floreDao.findByNom("Fraisier mariguette");
+		System.out.println(fraisierfind);
+
 		
 		context.close();
 	}
