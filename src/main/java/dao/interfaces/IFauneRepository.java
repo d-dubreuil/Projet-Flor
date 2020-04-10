@@ -7,4 +7,5 @@ import model.Faune;
 
 public interface IFauneRepository extends JpaRepository<Faune, Long>{
 
+	Faune findByNomFaune(String nomFaune);
 }

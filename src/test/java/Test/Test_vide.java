@@ -191,6 +191,10 @@ public class Test_vide {
 		contrib1.addFlores(fraisier);
 		contrib1=utilisateurDao.save(contrib1);
 		
+		Faune limacefind = new Faune();
+		limacefind=fauneDao.findByNomFaune("Limace");
+		System.out.println(limacefind);
+		
 		context.close();
 	}
 
