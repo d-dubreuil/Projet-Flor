@@ -23,7 +23,7 @@ public class Favoris {
 	@JoinTable (name = "Plante_Favories",joinColumns = @JoinColumn(name="favori_id"),inverseJoinColumns = @JoinColumn(name="flore_id"))
 	private List<Flore> flores = new ArrayList<Flore>();
 	@ManyToOne
-	@JoinColumn (name = "compteUtilisateru_id")
+	@JoinColumn (name = "compteUtilisateur_id")
 	private CompteUtilisateur compteUtilisateur;
 	public Favoris(String nom) {
 		super();
