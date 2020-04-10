@@ -13,8 +13,8 @@ import model.TypeCarac;
 
 
 public interface IFloreRepository extends JpaRepository<Flore, Long>{
-	Flore findByNom(String nom);
+	List <Flore> findByNom(String nom);
 	
-	@Query("select fl from Flore fl join fl.referentielCaracteristique rc join rc.caracteristique c where c.typeCarac = :type AND c.nom= :nom AND c.valeur=:valeur")
+	@Query("select fl from Flore fl join fl.referentielCaracteristiques rc join rc.caracteristique c where c.typeCarac = :type AND c.nom= :nom AND c.valeur=:valeur")
 	List<Flore> findAllByCaracteristique(@Param("type")TypeCarac typeCarac,@Param("nom") String nom,@Param("valeur") String valeur );
 }

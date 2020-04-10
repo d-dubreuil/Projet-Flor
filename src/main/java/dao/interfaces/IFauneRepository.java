@@ -1,5 +1,7 @@
 package dao.interfaces;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import model.Faune;
@@ -7,5 +9,5 @@ import model.Faune;
 
 public interface IFauneRepository extends JpaRepository<Faune, Long>{
 
-	Faune findByNomFaune(String nomFaune);
+	List <Faune> findByNomFaune(String nomFaune);
 }

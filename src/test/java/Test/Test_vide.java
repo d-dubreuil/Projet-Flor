@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import dao.interfaces.ICaracteristiqueRepository;
@@ -514,8 +516,7 @@ public class Test_vide {
         refCaracEntretienMais.setFlore(mais);
         refCaracEntretienMais = referentielCaracteristiqueDao.save(refCaracEntretienMais);
         
-		Faune limacefind = new Faune();
-		limacefind=fauneDao.findByNomFaune("Limace");
+		List <Faune>limacefind=fauneDao.findByNomFaune("Limace");
 		System.out.println(limacefind);
 		
 		context.close();
