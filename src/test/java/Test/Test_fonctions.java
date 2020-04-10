@@ -1,17 +1,5 @@
 package Test;
 
-import model.Caracteristique;
-import model.CompteUtilisateur;
-import model.Jardin;
-import model.Panier;
-import model.Produit;
-import model.ReferentielCaracteristique;
-import model.Selection;
-import model.TypeCarac;
-import model.TypeUtilisateur;
-import model.Utilisateur;
-import model.Paiement;
-import singleton.Application;
 
 public class Test_fonctions {
 
@@ -47,10 +35,10 @@ public class Test_fonctions {
 //		Application.getInstance().getPaiementDao().delete(pai1);
 //		System.out.println(Application.getInstance().getPaiementDao().findAll());
 		
-		Jardin jardin1 = new Jardin("mon jardin");
+//		Jardin jardin1 = new Jardin("mon jardin");
 		
-		jardin1 = Application.getInstance().getJardinDao().save(jardin1);
-		System.out.println(Application.getInstance().getJardinDao().find(jardin1.getId()));
+//		jardin1 = Application.getInstance().getJardinDao().save(jardin1);
+//		System.out.println(Application.getInstance().getJardinDao().find(jardin1.getId()));
 
 		
 	}
