@@ -10,6 +10,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import dao.interfaces.IReferentielCaracteristiqueRepository;
+
 @Entity
 public class Flore {
 	@Id
@@ -114,6 +118,18 @@ public class Flore {
 	public void addJardins (Jardin jardin) {
 		this.jardins.add(jardin);
 	}
+	
+	
+	public ReferentielCaracteristique addCaracteristiqueAvecRef (Caracteristique carac, ClassPathXmlApplicationContext context) {
+		IReferentielCaracteristiqueRepository referentielCaracteristiqueDao = context.getBean(IReferentielCaracteristiqueRepository.class);
+		ReferentielCaracteristique refcarac = new ReferentielCaracteristique();
+		refcarac.setFlore(this);
+		refcarac.setCaracteristique(carac);
+		refcarac = referentielCaracteristiqueDao.save(refcarac);
+		return refcarac;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Flore [id=" + id + ", nom=" + nom + "]";

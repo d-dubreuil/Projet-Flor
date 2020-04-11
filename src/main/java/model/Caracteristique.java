@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import dao.interfaces.ICaracteristiqueRepository;
+
 @Entity
 public class Caracteristique {
 	@Id
@@ -115,7 +119,7 @@ public class Caracteristique {
 	public void addReferentielFaune(ReferentielFaune referentielFaune) {
 		this.referentielFaunes.add(referentielFaune);
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Caracteristique [id=" + id + ", nom=" + nom + ", valeur=" + valeur + ", typeCarac=" + typeCarac + "]";
