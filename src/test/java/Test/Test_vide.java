@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import dao.interfaces.ICaracteristiqueRepository;
@@ -88,17 +90,17 @@ public class Test_vide {
 		cons1.setUtilisateur(contrib1);
 		cons1 = conseilDao.save(cons1);
 
-		Caracteristique cycle1 = new Caracteristique("Cycle de vie", "vivace", TypeCarac.Flore);
-		Caracteristique type1 = new Caracteristique("Type de fraisier", "remontant", TypeCarac.Flore);
-		Caracteristique plantation1 = new Caracteristique("Plantation", "automne", TypeCarac.Flore);
-		Caracteristique recolte1 = new Caracteristique("Récolte", "mi-juin à fin juillet", TypeCarac.Flore);
-		Caracteristique usage1 = new Caracteristique("Usage", "comestible", TypeCarac.Utilisation);
-		Caracteristique predateur1 = new Caracteristique("Prédateurs", "limaces", TypeCarac.Faune);
-		Caracteristique ensoleillement1 = new Caracteristique("Ensoleillement", "plein soleil", TypeCarac.Meteo);
-		Caracteristique temperature1 = new Caracteristique("Température idéale", "entre 10 et 25°C", TypeCarac.Meteo);
-		Caracteristique texture1 = new Caracteristique("Type de sol", "sol humifère meuble et sableux", TypeCarac.Sol);
-		Caracteristique pH1 = new Caracteristique("pH du sol", "5,5 à 7,5 : acide à neutre", TypeCarac.Sol);
-		Caracteristique arrosage1 = new Caracteristique("Arrosage", "arrosage sans excès", TypeCarac.Sol);
+		Caracteristique cycle1 = creationUnique("Cycle de vie", "vivace", TypeCarac.Flore,context);
+		Caracteristique type1 = creationUnique("Type de fraisier", "remontant", TypeCarac.Flore,context);
+		Caracteristique plantation1 = creationUnique("Plantation", "automne", TypeCarac.Flore,context);
+		Caracteristique recolte1 = creationUnique("Récolte", "mi-juin à fin juillet", TypeCarac.Flore,context);
+		Caracteristique usage1 = creationUnique("Usage", "comestible", TypeCarac.Utilisation,context);
+		Caracteristique predateur1 = creationUnique("Prédateurs", "limaces", TypeCarac.Faune,context);
+		Caracteristique ensoleillement1 = creationUnique("Ensoleillement", "plein soleil", TypeCarac.Meteo,context);
+		Caracteristique temperature1 = creationUnique("Température idéale", "entre 10 et 25°C", TypeCarac.Meteo,context);
+		Caracteristique texture1 = creationUnique("Type de sol", "sol humifère meuble et sableux", TypeCarac.Sol,context);
+		Caracteristique pH1 = creationUnique("pH du sol", "5,5 à 7,5 : acide à neutre", TypeCarac.Sol,context);
+		Caracteristique arrosage1 = creationUnique("Arrosage", "arrosage sans excès", TypeCarac.Sol,context);
 
 		cycle1 = caracteristiqueDao.save(cycle1);
 		type1 = caracteristiqueDao.save(type1);
@@ -112,24 +114,19 @@ public class Test_vide {
 		pH1 = caracteristiqueDao.save(pH1);
 		arrosage1 = caracteristiqueDao.save(arrosage1);
 
-		ReferentielCaracteristique ref1 = new ReferentielCaracteristique();
-		ref1 = referentielCaracteristiqueDao.save(ref1);
-		ref1.setCaracteristique(cycle1);
-		ref1.setCaracteristique(type1);
-		ref1.setCaracteristique(plantation1);
-		ref1.setCaracteristique(recolte1);
-		ref1.setCaracteristique(usage1);
-		ref1.setCaracteristique(predateur1);
-		ref1.setCaracteristique(ensoleillement1);
-		ref1.setCaracteristique(temperature1);
-		ref1.setCaracteristique(texture1);
-		ref1.setCaracteristique(pH1);
-		ref1.setCaracteristique(arrosage1);
-
 		Flore fraisier = new Flore("Fraisier mariguette");
 		fraisier = floreDao.save(fraisier);
-		ref1.setFlore(fraisier);
-		ref1 = referentielCaracteristiqueDao.save(ref1);
+		fraisier.addCaracteristiqueAvecRef(cycle1,context);
+		fraisier.addCaracteristiqueAvecRef(type1,context);
+		fraisier.addCaracteristiqueAvecRef(plantation1,context);
+		fraisier.addCaracteristiqueAvecRef(recolte1,context);
+		fraisier.addCaracteristiqueAvecRef(usage1,context);
+		fraisier.addCaracteristiqueAvecRef(predateur1,context);
+		fraisier.addCaracteristiqueAvecRef(ensoleillement1,context);
+		fraisier.addCaracteristiqueAvecRef(temperature1,context);
+		fraisier.addCaracteristiqueAvecRef(texture1,context);
+		fraisier.addCaracteristiqueAvecRef(pH1,context);
+		fraisier.addCaracteristiqueAvecRef(arrosage1,context);
 
 		fraisier.addUtilisateurs(contrib1);
 		fraisier = floreDao.save(fraisier);
@@ -191,20 +188,20 @@ public class Test_vide {
 		contrib1.addFlores(fraisier);
 		contrib1=utilisateurDao.save(contrib1);
 		
-		Caracteristique cycleAnnuelle = new Caracteristique("cycleDeVie", "annuelle", TypeCarac.Flore);
-		Caracteristique typeGrimpant = new Caracteristique("strate", "grimpant", TypeCarac.Flore);
-		Caracteristique debutPlantationAvril = new Caracteristique("debutPlantation", "avril", TypeCarac.Flore);
-		Caracteristique finPlantationAout = new Caracteristique("finPlantation", "aout", TypeCarac.Flore);
-		Caracteristique debutRecolteJuin = new Caracteristique("debutRecolte", "juin", TypeCarac.Flore);
-		Caracteristique finRecolteSeptembre = new Caracteristique("finRecolte", "septembre", TypeCarac.Flore);
-		Caracteristique usageComestible = new Caracteristique("usage", "comestible", TypeCarac.Utilisation);
-		Caracteristique predateurPuceron = new Caracteristique("predateurs", "puceron", TypeCarac.Faune);
-		Caracteristique ensoleillementPleinSoleil = new Caracteristique("ensoleillement", "soleil", TypeCarac.Meteo);
-		Caracteristique resistanceAuFroidFragile = new Caracteristique("resistanceAuFroid", "fragile", TypeCarac.Meteo);
-		Caracteristique typeDeSolSableux = new Caracteristique("typeDeSol", "sableux", TypeCarac.Sol);
-		Caracteristique phNeutre = new Caracteristique("ph", "neutre", TypeCarac.Sol);
-		Caracteristique arrosageMoyen = new Caracteristique("arrosage", "moyen", TypeCarac.Sol);
-		Caracteristique entretienModere = new Caracteristique("entretien", "modere", TypeCarac.Flore);
+		Caracteristique cycleAnnuelle = creationUnique("cycleDeVie", "annuelle", TypeCarac.Flore,context);
+		Caracteristique typeGrimpant = creationUnique("strate", "grimpant", TypeCarac.Flore,context);
+		Caracteristique debutPlantationAvril = creationUnique("debutPlantation", "avril", TypeCarac.Flore,context);
+		Caracteristique finPlantationAout = creationUnique("finPlantation", "aout", TypeCarac.Flore,context);
+		Caracteristique debutRecolteJuin = creationUnique("debutRecolte", "juin", TypeCarac.Flore,context);
+		Caracteristique finRecolteSeptembre = creationUnique("finRecolte", "septembre", TypeCarac.Flore,context);
+		Caracteristique usageComestible = creationUnique("usage", "comestible", TypeCarac.Utilisation,context);
+		Caracteristique predateurPuceron = creationUnique("predateurs", "puceron", TypeCarac.Faune,context);
+		Caracteristique ensoleillementPleinSoleil = creationUnique("ensoleillement", "soleil", TypeCarac.Meteo,context);
+		Caracteristique resistanceAuFroidFragile = creationUnique("resistanceAuFroid", "fragile", TypeCarac.Meteo,context);
+		Caracteristique typeDeSolSableux = creationUnique("typeDeSol", "sableux", TypeCarac.Sol,context);
+		Caracteristique phNeutre = creationUnique("ph", "neutre", TypeCarac.Sol,context);
+		Caracteristique arrosageMoyen = creationUnique("arrosage", "moyen", TypeCarac.Sol,context);
+		Caracteristique entretienModere = creationUnique("entretien", "modere", TypeCarac.Flore,context);
 		
 		cycleAnnuelle = caracteristiqueDao.save(cycleAnnuelle);
 		typeGrimpant = caracteristiqueDao.save(typeGrimpant);
@@ -224,100 +221,30 @@ public class Test_vide {
 		Flore haricot = new Flore("haricot");
 		haricot = floreDao.save(haricot);
 			
-		ReferentielCaracteristique refCaracCycleHaricot = new ReferentielCaracteristique();
-		refCaracCycleHaricot = referentielCaracteristiqueDao.save(refCaracCycleHaricot);
-		refCaracCycleHaricot.setCaracteristique(cycleAnnuelle);
-		refCaracCycleHaricot.setFlore(haricot);
-		refCaracCycleHaricot = referentielCaracteristiqueDao.save(refCaracCycleHaricot);
-
+		haricot.addCaracteristiqueAvecRef(cycleAnnuelle,context);
+		haricot.addCaracteristiqueAvecRef(typeGrimpant,context);
+		haricot.addCaracteristiqueAvecRef(debutPlantationAvril,context);
+		haricot.addCaracteristiqueAvecRef(finPlantationAout,context);
+		haricot.addCaracteristiqueAvecRef(debutRecolteJuin,context);
+		haricot.addCaracteristiqueAvecRef(finRecolteSeptembre,context);
+		haricot.addCaracteristiqueAvecRef(usageComestible,context);
+		haricot.addCaracteristiqueAvecRef(predateurPuceron,context);
+		haricot.addCaracteristiqueAvecRef(ensoleillementPleinSoleil,context);
+		haricot.addCaracteristiqueAvecRef(resistanceAuFroidFragile,context);
+		haricot.addCaracteristiqueAvecRef(typeDeSolSableux,context);
+		haricot.addCaracteristiqueAvecRef(phNeutre,context);
+		haricot.addCaracteristiqueAvecRef(arrosageMoyen,context);
+		haricot.addCaracteristiqueAvecRef(entretienModere,context);
 		
-		ReferentielCaracteristique refCaracTypeHaricot = new ReferentielCaracteristique();
-		refCaracTypeHaricot = referentielCaracteristiqueDao.save(refCaracTypeHaricot);
-		refCaracTypeHaricot.setCaracteristique(typeGrimpant);
-		refCaracTypeHaricot.setFlore(haricot);
-		refCaracTypeHaricot = referentielCaracteristiqueDao.save(refCaracTypeHaricot);
-
-		ReferentielCaracteristique refCaracDebutPlantationHaricot = new ReferentielCaracteristique();
-		refCaracDebutPlantationHaricot = referentielCaracteristiqueDao.save(refCaracDebutPlantationHaricot);
-		refCaracDebutPlantationHaricot.setCaracteristique(debutPlantationAvril);
-		refCaracDebutPlantationHaricot.setFlore(haricot); 
-		refCaracDebutPlantationHaricot = referentielCaracteristiqueDao.save(refCaracDebutPlantationHaricot);
-
-		ReferentielCaracteristique refCaracFinPlantationHaricot = new ReferentielCaracteristique();
-		refCaracFinPlantationHaricot = referentielCaracteristiqueDao.save(refCaracFinPlantationHaricot);
-		refCaracFinPlantationHaricot.setCaracteristique(finPlantationAout);
-		refCaracFinPlantationHaricot.setFlore(haricot); 
-		refCaracFinPlantationHaricot = referentielCaracteristiqueDao.save(refCaracFinPlantationHaricot);
-	
-		ReferentielCaracteristique refCaracDebutRecolteHaricot = new ReferentielCaracteristique();
-		refCaracDebutRecolteHaricot = referentielCaracteristiqueDao.save(refCaracDebutRecolteHaricot);
-		refCaracDebutRecolteHaricot.setCaracteristique(debutRecolteJuin);
-		refCaracDebutRecolteHaricot.setFlore(haricot);
-		refCaracDebutRecolteHaricot = referentielCaracteristiqueDao.save(refCaracDebutRecolteHaricot);
-
-		ReferentielCaracteristique refCaracFinRecolteHaricot = new ReferentielCaracteristique();
-		refCaracFinRecolteHaricot = referentielCaracteristiqueDao.save(refCaracFinRecolteHaricot);
-		refCaracFinRecolteHaricot.setCaracteristique(finRecolteSeptembre);
-		refCaracFinRecolteHaricot.setFlore(haricot);
-		refCaracFinRecolteHaricot = referentielCaracteristiqueDao.save(refCaracFinRecolteHaricot);
-
-		ReferentielCaracteristique refCaracUsageHaricot = new ReferentielCaracteristique();
-		refCaracUsageHaricot = referentielCaracteristiqueDao.save(refCaracUsageHaricot);
-		refCaracUsageHaricot.setCaracteristique(usageComestible);
-		refCaracUsageHaricot.setFlore(haricot);
-		refCaracUsageHaricot = referentielCaracteristiqueDao.save(refCaracUsageHaricot);
-
-		ReferentielCaracteristique refCaracPredateurHaricot = new ReferentielCaracteristique();
-		refCaracPredateurHaricot = referentielCaracteristiqueDao.save(refCaracPredateurHaricot);
-		refCaracPredateurHaricot.setCaracteristique(predateurPuceron);
-		refCaracPredateurHaricot.setFlore(haricot);
-		refCaracPredateurHaricot = referentielCaracteristiqueDao.save(refCaracPredateurHaricot);
-
-		ReferentielCaracteristique refCaracEnsoleillementHaricot = new ReferentielCaracteristique();
-		refCaracEnsoleillementHaricot = referentielCaracteristiqueDao.save(refCaracEnsoleillementHaricot);
-		refCaracEnsoleillementHaricot.setCaracteristique(ensoleillementPleinSoleil);
-		refCaracEnsoleillementHaricot.setFlore(haricot);
-		refCaracEnsoleillementHaricot = referentielCaracteristiqueDao.save(refCaracEnsoleillementHaricot);
-
-		ReferentielCaracteristique refCaracResistanceFroidHaricot = new ReferentielCaracteristique();
-		refCaracResistanceFroidHaricot = referentielCaracteristiqueDao.save(refCaracResistanceFroidHaricot);
-		refCaracResistanceFroidHaricot.setCaracteristique(resistanceAuFroidFragile);
-		refCaracResistanceFroidHaricot.setFlore(haricot);
-		refCaracResistanceFroidHaricot = referentielCaracteristiqueDao.save(refCaracResistanceFroidHaricot);
-
-		ReferentielCaracteristique refCaracTypeSolHaricot = new ReferentielCaracteristique();
-		refCaracTypeSolHaricot = referentielCaracteristiqueDao.save(refCaracTypeSolHaricot);
-		refCaracTypeSolHaricot.setCaracteristique(typeDeSolSableux);
-		refCaracTypeSolHaricot.setFlore(haricot);
-		refCaracTypeSolHaricot = referentielCaracteristiqueDao.save(refCaracTypeSolHaricot);
-
-		ReferentielCaracteristique refCaracPhHaricot = new ReferentielCaracteristique();
-		refCaracPhHaricot = referentielCaracteristiqueDao.save(refCaracPhHaricot);
-		refCaracPhHaricot.setCaracteristique(phNeutre);
-		refCaracPhHaricot.setFlore(haricot);
-		refCaracPhHaricot = referentielCaracteristiqueDao.save(refCaracPhHaricot);
-
-		ReferentielCaracteristique refCaracArrosageHaricot = new ReferentielCaracteristique();
-		refCaracArrosageHaricot = referentielCaracteristiqueDao.save(refCaracArrosageHaricot);
-		refCaracArrosageHaricot.setCaracteristique(arrosageMoyen);
-		refCaracArrosageHaricot.setFlore(haricot);
-		refCaracArrosageHaricot = referentielCaracteristiqueDao.save(refCaracArrosageHaricot);
-
-		ReferentielCaracteristique refCaracEntretienHaricot = new ReferentielCaracteristique();
-		refCaracEntretienHaricot = referentielCaracteristiqueDao.save(refCaracEntretienHaricot);
-		refCaracEntretienHaricot.setCaracteristique(entretienModere);
-		refCaracEntretienHaricot.setFlore(haricot);
-		refCaracEntretienHaricot = referentielCaracteristiqueDao.save(refCaracEntretienHaricot);
-		
-		Caracteristique typeCouvrant = new Caracteristique("strate", "couvrant", TypeCarac.Flore);
-		Caracteristique debutPlantationMai = new Caracteristique("debutPlantation", "mai", TypeCarac.Flore);
-		Caracteristique finPlantationJuin = new Caracteristique("finPlantation", "juin", TypeCarac.Flore);
-		Caracteristique debutRecolteJuillet = new Caracteristique("debutRecolte", "juillet", TypeCarac.Flore);
-		Caracteristique finRecolteOctobre = new Caracteristique("finRecolte", "octobre", TypeCarac.Flore);
-		Caracteristique predateurPunaise = new Caracteristique("predateurs", "punaise", TypeCarac.Faune);
-		Caracteristique typeDeSolHumus = new Caracteristique("typeDeSol", "humus", TypeCarac.Sol);
-		Caracteristique arrosageImportant = new Caracteristique("arrosage", "important", TypeCarac.Sol);
-		Caracteristique entretienFacile = new Caracteristique("entretien", "facile", TypeCarac.Flore);
+		Caracteristique typeCouvrant = creationUnique("strate", "couvrant", TypeCarac.Flore,context);
+		Caracteristique debutPlantationMai = creationUnique("debutPlantation", "mai", TypeCarac.Flore,context);
+		Caracteristique finPlantationJuin = creationUnique("finPlantation", "juin", TypeCarac.Flore,context);
+		Caracteristique debutRecolteJuillet = creationUnique("debutRecolte", "juillet", TypeCarac.Flore,context);
+		Caracteristique finRecolteOctobre = creationUnique("finRecolte", "octobre", TypeCarac.Flore,context);
+		Caracteristique predateurPunaise = creationUnique("predateurs", "punaise", TypeCarac.Faune,context);
+		Caracteristique typeDeSolHumus = creationUnique("typeDeSol", "humus", TypeCarac.Sol,context);
+		Caracteristique arrosageImportant = creationUnique("arrosage", "important", TypeCarac.Sol,context);
+		Caracteristique entretienFacile = creationUnique("entretien", "facile", TypeCarac.Flore,context);
 		
 		typeCouvrant = caracteristiqueDao.save(typeCouvrant);
 		predateurPunaise=caracteristiqueDao.save(predateurPunaise);
@@ -333,94 +260,24 @@ public class Test_vide {
 		Flore courge = new Flore("courge");
 		courge = floreDao.save(courge);
 			
-		ReferentielCaracteristique refCaracCycleCourge = new ReferentielCaracteristique();
-		refCaracCycleCourge = referentielCaracteristiqueDao.save(refCaracCycleCourge);
-		refCaracCycleCourge.setCaracteristique(cycleAnnuelle);
-		refCaracCycleCourge.setFlore(courge);
-		refCaracCycleCourge = referentielCaracteristiqueDao.save(refCaracCycleCourge);
-
+		courge.addCaracteristiqueAvecRef(cycleAnnuelle,context);
+		courge.addCaracteristiqueAvecRef(typeCouvrant,context);
+		courge.addCaracteristiqueAvecRef(debutPlantationMai,context);
+		courge.addCaracteristiqueAvecRef(finPlantationJuin,context);
+		courge.addCaracteristiqueAvecRef(debutRecolteJuillet,context);
+		courge.addCaracteristiqueAvecRef(finRecolteOctobre,context);
+		courge.addCaracteristiqueAvecRef(usageComestible,context);
+		courge.addCaracteristiqueAvecRef(predateurPunaise,context);
+		courge.addCaracteristiqueAvecRef(ensoleillementPleinSoleil,context);
+		courge.addCaracteristiqueAvecRef(resistanceAuFroidFragile,context);
+		courge.addCaracteristiqueAvecRef(typeDeSolHumus,context);
+		courge.addCaracteristiqueAvecRef(phNeutre,context);
+		courge.addCaracteristiqueAvecRef(arrosageImportant,context);
+		courge.addCaracteristiqueAvecRef(entretienFacile,context);
 		
-		ReferentielCaracteristique refCaracTypeCourge = new ReferentielCaracteristique();
-		refCaracTypeCourge = referentielCaracteristiqueDao.save(refCaracTypeCourge);
-		refCaracTypeCourge.setCaracteristique(typeCouvrant);
-		refCaracTypeCourge.setFlore(courge);
-		refCaracTypeCourge = referentielCaracteristiqueDao.save(refCaracTypeCourge);
-
-		ReferentielCaracteristique refCaracDebutPlantationCourge = new ReferentielCaracteristique();
-		refCaracDebutPlantationCourge = referentielCaracteristiqueDao.save(refCaracDebutPlantationCourge);
-		refCaracDebutPlantationCourge.setCaracteristique(debutPlantationMai);
-		refCaracDebutPlantationCourge.setFlore(courge); 
-		refCaracDebutPlantationCourge = referentielCaracteristiqueDao.save(refCaracDebutPlantationCourge);
-
-		ReferentielCaracteristique refCaracFinPlantationCourge = new ReferentielCaracteristique();
-		refCaracFinPlantationCourge = referentielCaracteristiqueDao.save(refCaracFinPlantationCourge);
-		refCaracFinPlantationCourge.setCaracteristique(finPlantationJuin);
-		refCaracFinPlantationCourge.setFlore(courge); 
-		refCaracFinPlantationCourge = referentielCaracteristiqueDao.save(refCaracFinPlantationCourge);
-	
-		ReferentielCaracteristique refCaracDebutRecolteCourge = new ReferentielCaracteristique();
-		refCaracDebutRecolteCourge = referentielCaracteristiqueDao.save(refCaracDebutRecolteCourge);
-		refCaracDebutRecolteCourge.setCaracteristique(debutRecolteJuillet);
-		refCaracDebutRecolteCourge.setFlore(courge);
-		refCaracDebutRecolteCourge = referentielCaracteristiqueDao.save(refCaracDebutRecolteCourge);
-
-		ReferentielCaracteristique refCaracFinRecolteCourge = new ReferentielCaracteristique();
-		refCaracFinRecolteCourge = referentielCaracteristiqueDao.save(refCaracFinRecolteCourge);
-		refCaracFinRecolteCourge.setCaracteristique(finRecolteOctobre);
-		refCaracFinRecolteCourge.setFlore(courge);
-		refCaracFinRecolteCourge = referentielCaracteristiqueDao.save(refCaracFinRecolteCourge);
-
-		ReferentielCaracteristique refCaracUsageCourge = new ReferentielCaracteristique();
-		refCaracUsageCourge = referentielCaracteristiqueDao.save(refCaracUsageCourge);
-		refCaracUsageCourge.setCaracteristique(usageComestible);
-		refCaracUsageCourge.setFlore(courge);
-		refCaracUsageCourge = referentielCaracteristiqueDao.save(refCaracUsageCourge);
-
-		ReferentielCaracteristique refCaracPredateurCourge = new ReferentielCaracteristique();
-		refCaracPredateurCourge = referentielCaracteristiqueDao.save(refCaracPredateurCourge);
-		refCaracPredateurCourge.setCaracteristique(predateurPunaise);
-		refCaracPredateurCourge.setFlore(courge);
-		refCaracPredateurCourge = referentielCaracteristiqueDao.save(refCaracPredateurCourge);
-
-		ReferentielCaracteristique refCaracEnsoleillementCourge = new ReferentielCaracteristique();
-		refCaracEnsoleillementCourge = referentielCaracteristiqueDao.save(refCaracEnsoleillementCourge);
-		refCaracEnsoleillementCourge.setCaracteristique(ensoleillementPleinSoleil);
-		refCaracEnsoleillementCourge.setFlore(courge);
-		refCaracEnsoleillementCourge = referentielCaracteristiqueDao.save(refCaracEnsoleillementCourge);
-
-		ReferentielCaracteristique refCaracResistanceFroidCourge = new ReferentielCaracteristique();
-		refCaracResistanceFroidCourge = referentielCaracteristiqueDao.save(refCaracResistanceFroidCourge);
-		refCaracResistanceFroidCourge.setCaracteristique(resistanceAuFroidFragile);
-		refCaracResistanceFroidCourge.setFlore(courge);
-		refCaracResistanceFroidCourge = referentielCaracteristiqueDao.save(refCaracResistanceFroidCourge);
-
-		ReferentielCaracteristique refCaracTypeSolCourge = new ReferentielCaracteristique();
-		refCaracTypeSolCourge = referentielCaracteristiqueDao.save(refCaracTypeSolCourge);
-		refCaracTypeSolCourge.setCaracteristique(typeDeSolHumus);
-		refCaracTypeSolCourge.setFlore(courge);
-		refCaracTypeSolCourge = referentielCaracteristiqueDao.save(refCaracTypeSolCourge);
-
-		ReferentielCaracteristique refCaracPhCourge = new ReferentielCaracteristique();
-		refCaracPhCourge = referentielCaracteristiqueDao.save(refCaracPhCourge);
-		refCaracPhCourge.setCaracteristique(phNeutre);
-		refCaracPhCourge.setFlore(courge);
-		refCaracPhCourge = referentielCaracteristiqueDao.save(refCaracPhCourge);
-
-		ReferentielCaracteristique refCaracArrosageCourge = new ReferentielCaracteristique();
-		refCaracArrosageCourge = referentielCaracteristiqueDao.save(refCaracArrosageCourge);
-		refCaracArrosageCourge.setCaracteristique(arrosageImportant);
-		refCaracArrosageCourge.setFlore(courge);
-		refCaracArrosageCourge = referentielCaracteristiqueDao.save(refCaracArrosageCourge);
-
-		ReferentielCaracteristique refCaracEntretienCourge = new ReferentielCaracteristique();
-		refCaracEntretienCourge = referentielCaracteristiqueDao.save(refCaracEntretienCourge);
-		refCaracEntretienCourge.setCaracteristique(entretienFacile);
-		refCaracEntretienCourge.setFlore(courge);
-		refCaracEntretienCourge = referentielCaracteristiqueDao.save(refCaracEntretienCourge);
-
-        Caracteristique typeHerbaceeHaute = new Caracteristique("strate", "herbaceeHaute", TypeCarac.Flore);
-        Caracteristique debutPlantationMars = new Caracteristique("debutPlantation", "mars", TypeCarac.Flore);
-        Caracteristique predateurMoucheSemis = new Caracteristique("predateurs", "moucheSemis", TypeCarac.Faune);
+		Caracteristique typeHerbaceeHaute = creationUnique("strate", "herbaceeHaute", TypeCarac.Flore,context);
+        Caracteristique debutPlantationMars = creationUnique("debutPlantation", "mars", TypeCarac.Flore,context);
+        Caracteristique predateurMoucheSemis = creationUnique("predateurs", "moucheSemis", TypeCarac.Faune,context);
         
         typeHerbaceeHaute = caracteristiqueDao.save(typeHerbaceeHaute);
         debutPlantationMars = caracteristiqueDao.save(debutPlantationMars);
@@ -429,92 +286,35 @@ public class Test_vide {
         Flore mais = new Flore("mais");
         mais = floreDao.save(mais);
        
-        ReferentielCaracteristique refCaracCycleMais = new ReferentielCaracteristique();
-        refCaracCycleMais = referentielCaracteristiqueDao.save(refCaracCycleMais);
-        refCaracCycleMais.setCaracteristique(cycleAnnuelle);
-        refCaracCycleMais.setFlore(mais);
-        refCaracCycleMais = referentielCaracteristiqueDao.save(refCaracCycleMais);
+        mais.addCaracteristiqueAvecRef(cycleAnnuelle,context);
+        mais.addCaracteristiqueAvecRef(typeHerbaceeHaute,context);
+        mais.addCaracteristiqueAvecRef(debutPlantationMars,context);
+        mais.addCaracteristiqueAvecRef(finPlantationJuin,context);
+        mais.addCaracteristiqueAvecRef(debutRecolteJuillet,context);
+        mais.addCaracteristiqueAvecRef(finRecolteOctobre,context);
+        mais.addCaracteristiqueAvecRef(usageComestible,context);
+        mais.addCaracteristiqueAvecRef(predateurMoucheSemis,context);
+        mais.addCaracteristiqueAvecRef(ensoleillementPleinSoleil,context);
+        mais.addCaracteristiqueAvecRef(resistanceAuFroidFragile,context);
+        mais.addCaracteristiqueAvecRef(typeDeSolSableux,context);
+        mais.addCaracteristiqueAvecRef(phNeutre,context);
+        mais.addCaracteristiqueAvecRef(arrosageMoyen,context);
 
-       
-        ReferentielCaracteristique refCaracTypeMais = new ReferentielCaracteristique();
-        refCaracTypeMais = referentielCaracteristiqueDao.save(refCaracTypeMais);
-        refCaracTypeMais.setCaracteristique(typeHerbaceeHaute);
-        refCaracTypeMais.setFlore(mais);
-        refCaracTypeMais = referentielCaracteristiqueDao.save(refCaracTypeMais);
-
-        ReferentielCaracteristique refCaracDebutPlantationMais = new ReferentielCaracteristique();
-        refCaracDebutPlantationMais = referentielCaracteristiqueDao.save(refCaracDebutPlantationMais);
-        refCaracDebutPlantationMais.setCaracteristique(debutPlantationMars);
-        refCaracDebutPlantationMais.setFlore(mais) ;
-        refCaracDebutPlantationMais = referentielCaracteristiqueDao.save(refCaracDebutPlantationMais);
-
-        ReferentielCaracteristique refCaracFinPlantationMais = new ReferentielCaracteristique();
-        refCaracFinPlantationMais = referentielCaracteristiqueDao.save(refCaracFinPlantationMais);
-        refCaracFinPlantationMais.setCaracteristique(finPlantationJuin);
-        refCaracFinPlantationMais.setFlore(mais);
-        refCaracFinPlantationMais = referentielCaracteristiqueDao.save(refCaracFinPlantationMais);
-    
-        ReferentielCaracteristique refCaracDebutRecolteMais = new ReferentielCaracteristique();
-        refCaracDebutRecolteMais = referentielCaracteristiqueDao.save(refCaracDebutRecolteMais);
-        refCaracDebutRecolteMais.setCaracteristique(debutRecolteJuillet);
-        refCaracDebutRecolteMais.setFlore(mais);
-        refCaracDebutRecolteMais = referentielCaracteristiqueDao.save(refCaracDebutRecolteMais);
         
-        ReferentielCaracteristique refCaracFinRecolteMais = new ReferentielCaracteristique();
-        refCaracFinRecolteMais = referentielCaracteristiqueDao.save(refCaracFinRecolteMais);
-        refCaracFinRecolteMais.setCaracteristique(finRecolteOctobre);
-        refCaracFinRecolteMais.setFlore(mais);
-        refCaracFinRecolteMais = referentielCaracteristiqueDao.save(refCaracFinRecolteMais);
-        
-        ReferentielCaracteristique refCaracUsageMais = new ReferentielCaracteristique();
-        refCaracUsageMais = referentielCaracteristiqueDao.save(refCaracUsageMais);
-        refCaracUsageMais.setCaracteristique(usageComestible);
-        refCaracUsageMais.setFlore(mais);
-        refCaracUsageMais = referentielCaracteristiqueDao.save(refCaracUsageMais);
-        
-        ReferentielCaracteristique refCaracPredateurMais = new ReferentielCaracteristique();
-        refCaracPredateurMais = referentielCaracteristiqueDao.save(refCaracPredateurMais);
-        refCaracPredateurMais.setCaracteristique(predateurMoucheSemis);
-        refCaracPredateurMais.setFlore(mais);
-        refCaracPredateurMais = referentielCaracteristiqueDao.save(refCaracPredateurMais);
-
-        ReferentielCaracteristique refCaracEnsoleillementMais = new ReferentielCaracteristique();
-        refCaracEnsoleillementMais = referentielCaracteristiqueDao.save(refCaracEnsoleillementMais);
-        refCaracEnsoleillementMais.setCaracteristique(ensoleillementPleinSoleil);
-        refCaracEnsoleillementMais.setFlore(mais);
-        refCaracEnsoleillementMais = referentielCaracteristiqueDao.save(refCaracEnsoleillementMais);
-
-        ReferentielCaracteristique refCaracResistanceFroidMais = new ReferentielCaracteristique();
-        refCaracResistanceFroidMais = referentielCaracteristiqueDao.save(refCaracResistanceFroidMais);
-        refCaracResistanceFroidMais.setCaracteristique(resistanceAuFroidFragile);
-        refCaracResistanceFroidMais.setFlore(mais);
-        refCaracResistanceFroidMais = referentielCaracteristiqueDao.save(refCaracResistanceFroidMais);
-
-        ReferentielCaracteristique refCaracTypeSolMais = new ReferentielCaracteristique();
-        refCaracTypeSolMais = referentielCaracteristiqueDao.save(refCaracTypeSolMais);
-        refCaracTypeSolMais.setCaracteristique(typeDeSolSableux);
-        refCaracTypeSolMais.setFlore(mais);
-        refCaracTypeSolMais = referentielCaracteristiqueDao.save(refCaracTypeSolMais);
-
-        ReferentielCaracteristique refCaracPhMais = new ReferentielCaracteristique();
-        refCaracPhMais = referentielCaracteristiqueDao.save(refCaracPhMais);
-        refCaracPhMais.setCaracteristique(phNeutre);
-        refCaracPhMais.setFlore(mais);
-        refCaracPhMais = referentielCaracteristiqueDao.save(refCaracPhMais);
-
-        ReferentielCaracteristique refCaracArrosageMais = new ReferentielCaracteristique();
-        refCaracArrosageMais = referentielCaracteristiqueDao.save(refCaracArrosageMais);
-        refCaracArrosageMais.setCaracteristique(arrosageMoyen);
-        refCaracArrosageMais.setFlore(mais);
-        refCaracArrosageMais = referentielCaracteristiqueDao.save(refCaracArrosageMais);
-
-        ReferentielCaracteristique refCaracEntretienMais = new ReferentielCaracteristique();
-        refCaracEntretienMais = referentielCaracteristiqueDao.save(refCaracEntretienMais);
-        refCaracEntretienMais.setCaracteristique(entretienModere);
-        refCaracEntretienMais.setFlore(mais);
-        refCaracEntretienMais = referentielCaracteristiqueDao.save(refCaracEntretienMais);
-        
+//		List <Faune>limacefind=fauneDao.findByNomFaune("Limace");
+//		System.out.println(limacefind);
+//		
 		context.close();
 	}
-
+	
+	public static Caracteristique creationUnique (String nom, String valeur, TypeCarac typeCarac, ClassPathXmlApplicationContext context) {
+		ICaracteristiqueRepository caracteristiqueDao = context.getBean(ICaracteristiqueRepository.class);
+		if (caracteristiqueDao.findByAttribut(typeCarac, nom, valeur) == null) {
+			Caracteristique carac = new Caracteristique(nom, valeur, typeCarac);
+			carac = caracteristiqueDao.save(carac);
+			return carac;
+		}
+		Caracteristique carac = caracteristiqueDao.findByAttribut(typeCarac, nom, valeur);
+		return carac;
+	}
 }
