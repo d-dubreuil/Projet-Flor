@@ -303,7 +303,10 @@ public class Test_vide {
         
 //		List <Faune>limacefind=fauneDao.findByNomFaune("Limace");
 //		System.out.println(limacefind);
-//		
+		
+        List<Caracteristique> caracMais = caracteristiqueDao.findByFlore("mais");
+        System.out.println(caracMais);
+        
 		context.close();
 	}
 	
