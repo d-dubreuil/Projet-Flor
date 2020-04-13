@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import dao.interfaces.ICaracteristiqueRepository;
@@ -88,17 +90,17 @@ public class Test_vide {
 		cons1.setUtilisateur(contrib1);
 		cons1 = conseilDao.save(cons1);
 
-		Caracteristique cycle1 = new Caracteristique("Cycle de vie", "vivace", TypeCarac.Flore);
-		Caracteristique type1 = new Caracteristique("Type de fraisier", "remontant", TypeCarac.Flore);
-		Caracteristique plantation1 = new Caracteristique("Plantation", "automne", TypeCarac.Flore);
-		Caracteristique recolte1 = new Caracteristique("Récolte", "mi-juin à fin juillet", TypeCarac.Flore);
-		Caracteristique usage1 = new Caracteristique("Usage", "comestible", TypeCarac.Utilisation);
-		Caracteristique predateur1 = new Caracteristique("Prédateurs", "limaces", TypeCarac.Faune);
-		Caracteristique ensoleillement1 = new Caracteristique("Ensoleillement", "plein soleil", TypeCarac.Meteo);
-		Caracteristique temperature1 = new Caracteristique("Température idéale", "entre 10 et 25°C", TypeCarac.Meteo);
-		Caracteristique texture1 = new Caracteristique("Type de sol", "sol humifère meuble et sableux", TypeCarac.Sol);
-		Caracteristique pH1 = new Caracteristique("pH du sol", "5,5 à 7,5 : acide à neutre", TypeCarac.Sol);
-		Caracteristique arrosage1 = new Caracteristique("Arrosage", "arrosage sans excès", TypeCarac.Sol);
+		Caracteristique cycle1 = creationUnique("Cycle de vie", "vivace", TypeCarac.Flore,context);
+		Caracteristique type1 = creationUnique("Type de fraisier", "remontant", TypeCarac.Flore,context);
+		Caracteristique plantation1 = creationUnique("Plantation", "automne", TypeCarac.Flore,context);
+		Caracteristique recolte1 = creationUnique("Récolte", "mi-juin à fin juillet", TypeCarac.Flore,context);
+		Caracteristique usage1 = creationUnique("Usage", "comestible", TypeCarac.Utilisation,context);
+		Caracteristique predateur1 = creationUnique("Prédateurs", "limaces", TypeCarac.Faune,context);
+		Caracteristique ensoleillement1 = creationUnique("Ensoleillement", "plein soleil", TypeCarac.Meteo,context);
+		Caracteristique temperature1 = creationUnique("Température idéale", "entre 10 et 25°C", TypeCarac.Meteo,context);
+		Caracteristique texture1 = creationUnique("Type de sol", "sol humifère meuble et sableux", TypeCarac.Sol,context);
+		Caracteristique pH1 = creationUnique("pH du sol", "5,5 à 7,5 : acide à neutre", TypeCarac.Sol,context);
+		Caracteristique arrosage1 = creationUnique("Arrosage", "arrosage sans excès", TypeCarac.Sol,context);
 
 		cycle1 = caracteristiqueDao.save(cycle1);
 		type1 = caracteristiqueDao.save(type1);
@@ -112,24 +114,19 @@ public class Test_vide {
 		pH1 = caracteristiqueDao.save(pH1);
 		arrosage1 = caracteristiqueDao.save(arrosage1);
 
-		ReferentielCaracteristique ref1 = new ReferentielCaracteristique();
-		ref1 = referentielCaracteristiqueDao.save(ref1);
-		ref1.setCaracteristique(cycle1);
-		ref1.setCaracteristique(type1);
-		ref1.setCaracteristique(plantation1);
-		ref1.setCaracteristique(recolte1);
-		ref1.setCaracteristique(usage1);
-		ref1.setCaracteristique(predateur1);
-		ref1.setCaracteristique(ensoleillement1);
-		ref1.setCaracteristique(temperature1);
-		ref1.setCaracteristique(texture1);
-		ref1.setCaracteristique(pH1);
-		ref1.setCaracteristique(arrosage1);
-
 		Flore fraisier = new Flore("Fraisier mariguette");
 		fraisier = floreDao.save(fraisier);
-		ref1.setFlore(fraisier);
-		ref1 = referentielCaracteristiqueDao.save(ref1);
+		fraisier.addCaracteristiqueAvecRef(cycle1,context);
+		fraisier.addCaracteristiqueAvecRef(type1,context);
+		fraisier.addCaracteristiqueAvecRef(plantation1,context);
+		fraisier.addCaracteristiqueAvecRef(recolte1,context);
+		fraisier.addCaracteristiqueAvecRef(usage1,context);
+		fraisier.addCaracteristiqueAvecRef(predateur1,context);
+		fraisier.addCaracteristiqueAvecRef(ensoleillement1,context);
+		fraisier.addCaracteristiqueAvecRef(temperature1,context);
+		fraisier.addCaracteristiqueAvecRef(texture1,context);
+		fraisier.addCaracteristiqueAvecRef(pH1,context);
+		fraisier.addCaracteristiqueAvecRef(arrosage1,context);
 
 		fraisier.addUtilisateurs(contrib1);
 		fraisier = floreDao.save(fraisier);
@@ -191,7 +188,133 @@ public class Test_vide {
 		contrib1.addFlores(fraisier);
 		contrib1=utilisateurDao.save(contrib1);
 		
+		Caracteristique cycleAnnuelle = creationUnique("cycleDeVie", "annuelle", TypeCarac.Flore,context);
+		Caracteristique typeGrimpant = creationUnique("strate", "grimpant", TypeCarac.Flore,context);
+		Caracteristique debutPlantationAvril = creationUnique("debutPlantation", "avril", TypeCarac.Flore,context);
+		Caracteristique finPlantationAout = creationUnique("finPlantation", "aout", TypeCarac.Flore,context);
+		Caracteristique debutRecolteJuin = creationUnique("debutRecolte", "juin", TypeCarac.Flore,context);
+		Caracteristique finRecolteSeptembre = creationUnique("finRecolte", "septembre", TypeCarac.Flore,context);
+		Caracteristique usageComestible = creationUnique("usage", "comestible", TypeCarac.Utilisation,context);
+		Caracteristique predateurPuceron = creationUnique("predateurs", "puceron", TypeCarac.Faune,context);
+		Caracteristique ensoleillementPleinSoleil = creationUnique("ensoleillement", "soleil", TypeCarac.Meteo,context);
+		Caracteristique resistanceAuFroidFragile = creationUnique("resistanceAuFroid", "fragile", TypeCarac.Meteo,context);
+		Caracteristique typeDeSolSableux = creationUnique("typeDeSol", "sableux", TypeCarac.Sol,context);
+		Caracteristique phNeutre = creationUnique("ph", "neutre", TypeCarac.Sol,context);
+		Caracteristique arrosageMoyen = creationUnique("arrosage", "moyen", TypeCarac.Sol,context);
+		Caracteristique entretienModere = creationUnique("entretien", "modere", TypeCarac.Flore,context);
+		
+		cycleAnnuelle = caracteristiqueDao.save(cycleAnnuelle);
+		typeGrimpant = caracteristiqueDao.save(typeGrimpant);
+		debutPlantationAvril = caracteristiqueDao.save(debutPlantationAvril);
+		finPlantationAout = caracteristiqueDao.save(finPlantationAout);
+		debutRecolteJuin = caracteristiqueDao.save(debutRecolteJuin);
+		finRecolteSeptembre = caracteristiqueDao.save(finRecolteSeptembre);
+		usageComestible = caracteristiqueDao.save(usageComestible);
+		predateurPuceron = caracteristiqueDao.save(predateurPuceron);
+		ensoleillementPleinSoleil = caracteristiqueDao.save(ensoleillementPleinSoleil);
+		resistanceAuFroidFragile = caracteristiqueDao.save(resistanceAuFroidFragile);
+		typeDeSolSableux = caracteristiqueDao.save(typeDeSolSableux);
+		phNeutre = caracteristiqueDao.save(phNeutre);
+		arrosageMoyen = caracteristiqueDao.save(arrosageMoyen);
+		entretienModere = caracteristiqueDao.save(entretienModere);
+		
+		Flore haricot = new Flore("haricot");
+		haricot = floreDao.save(haricot);
+			
+		haricot.addCaracteristiqueAvecRef(cycleAnnuelle,context);
+		haricot.addCaracteristiqueAvecRef(typeGrimpant,context);
+		haricot.addCaracteristiqueAvecRef(debutPlantationAvril,context);
+		haricot.addCaracteristiqueAvecRef(finPlantationAout,context);
+		haricot.addCaracteristiqueAvecRef(debutRecolteJuin,context);
+		haricot.addCaracteristiqueAvecRef(finRecolteSeptembre,context);
+		haricot.addCaracteristiqueAvecRef(usageComestible,context);
+		haricot.addCaracteristiqueAvecRef(predateurPuceron,context);
+		haricot.addCaracteristiqueAvecRef(ensoleillementPleinSoleil,context);
+		haricot.addCaracteristiqueAvecRef(resistanceAuFroidFragile,context);
+		haricot.addCaracteristiqueAvecRef(typeDeSolSableux,context);
+		haricot.addCaracteristiqueAvecRef(phNeutre,context);
+		haricot.addCaracteristiqueAvecRef(arrosageMoyen,context);
+		haricot.addCaracteristiqueAvecRef(entretienModere,context);
+		
+		Caracteristique typeCouvrant = creationUnique("strate", "couvrant", TypeCarac.Flore,context);
+		Caracteristique debutPlantationMai = creationUnique("debutPlantation", "mai", TypeCarac.Flore,context);
+		Caracteristique finPlantationJuin = creationUnique("finPlantation", "juin", TypeCarac.Flore,context);
+		Caracteristique debutRecolteJuillet = creationUnique("debutRecolte", "juillet", TypeCarac.Flore,context);
+		Caracteristique finRecolteOctobre = creationUnique("finRecolte", "octobre", TypeCarac.Flore,context);
+		Caracteristique predateurPunaise = creationUnique("predateurs", "punaise", TypeCarac.Faune,context);
+		Caracteristique typeDeSolHumus = creationUnique("typeDeSol", "humus", TypeCarac.Sol,context);
+		Caracteristique arrosageImportant = creationUnique("arrosage", "important", TypeCarac.Sol,context);
+		Caracteristique entretienFacile = creationUnique("entretien", "facile", TypeCarac.Flore,context);
+		
+		typeCouvrant = caracteristiqueDao.save(typeCouvrant);
+		predateurPunaise=caracteristiqueDao.save(predateurPunaise);
+		debutPlantationMai = caracteristiqueDao.save(debutPlantationMai);
+		finPlantationJuin = caracteristiqueDao.save(finPlantationJuin);
+		debutRecolteJuillet = caracteristiqueDao.save(debutRecolteJuillet);
+		finRecolteOctobre = caracteristiqueDao.save(finRecolteOctobre);
+		predateurPuceron = caracteristiqueDao.save(predateurPuceron);
+		typeDeSolHumus = caracteristiqueDao.save(typeDeSolHumus);
+		arrosageImportant = caracteristiqueDao.save(arrosageImportant);
+		entretienFacile = caracteristiqueDao.save(entretienFacile);
+		
+		Flore courge = new Flore("courge");
+		courge = floreDao.save(courge);
+			
+		courge.addCaracteristiqueAvecRef(cycleAnnuelle,context);
+		courge.addCaracteristiqueAvecRef(typeCouvrant,context);
+		courge.addCaracteristiqueAvecRef(debutPlantationMai,context);
+		courge.addCaracteristiqueAvecRef(finPlantationJuin,context);
+		courge.addCaracteristiqueAvecRef(debutRecolteJuillet,context);
+		courge.addCaracteristiqueAvecRef(finRecolteOctobre,context);
+		courge.addCaracteristiqueAvecRef(usageComestible,context);
+		courge.addCaracteristiqueAvecRef(predateurPunaise,context);
+		courge.addCaracteristiqueAvecRef(ensoleillementPleinSoleil,context);
+		courge.addCaracteristiqueAvecRef(resistanceAuFroidFragile,context);
+		courge.addCaracteristiqueAvecRef(typeDeSolHumus,context);
+		courge.addCaracteristiqueAvecRef(phNeutre,context);
+		courge.addCaracteristiqueAvecRef(arrosageImportant,context);
+		courge.addCaracteristiqueAvecRef(entretienFacile,context);
+		
+		Caracteristique typeHerbaceeHaute = creationUnique("strate", "herbaceeHaute", TypeCarac.Flore,context);
+        Caracteristique debutPlantationMars = creationUnique("debutPlantation", "mars", TypeCarac.Flore,context);
+        Caracteristique predateurMoucheSemis = creationUnique("predateurs", "moucheSemis", TypeCarac.Faune,context);
+        
+        typeHerbaceeHaute = caracteristiqueDao.save(typeHerbaceeHaute);
+        debutPlantationMars = caracteristiqueDao.save(debutPlantationMars);
+        predateurMoucheSemis = caracteristiqueDao.save(predateurMoucheSemis);
+        
+        Flore mais = new Flore("mais");
+        mais = floreDao.save(mais);
+       
+        mais.addCaracteristiqueAvecRef(cycleAnnuelle,context);
+        mais.addCaracteristiqueAvecRef(typeHerbaceeHaute,context);
+        mais.addCaracteristiqueAvecRef(debutPlantationMars,context);
+        mais.addCaracteristiqueAvecRef(finPlantationJuin,context);
+        mais.addCaracteristiqueAvecRef(debutRecolteJuillet,context);
+        mais.addCaracteristiqueAvecRef(finRecolteOctobre,context);
+        mais.addCaracteristiqueAvecRef(usageComestible,context);
+        mais.addCaracteristiqueAvecRef(predateurMoucheSemis,context);
+        mais.addCaracteristiqueAvecRef(ensoleillementPleinSoleil,context);
+        mais.addCaracteristiqueAvecRef(resistanceAuFroidFragile,context);
+        mais.addCaracteristiqueAvecRef(typeDeSolSableux,context);
+        mais.addCaracteristiqueAvecRef(phNeutre,context);
+        mais.addCaracteristiqueAvecRef(arrosageMoyen,context);
+
+        
+//		List <Faune>limacefind=fauneDao.findByNomFaune("Limace");
+//		System.out.println(limacefind);
+//		
 		context.close();
 	}
-
+	
+	public static Caracteristique creationUnique (String nom, String valeur, TypeCarac typeCarac, ClassPathXmlApplicationContext context) {
+		ICaracteristiqueRepository caracteristiqueDao = context.getBean(ICaracteristiqueRepository.class);
+		if (caracteristiqueDao.findByAttribut(typeCarac, nom, valeur) == null) {
+			Caracteristique carac = new Caracteristique(nom, valeur, typeCarac);
+			carac = caracteristiqueDao.save(carac);
+			return carac;
+		}
+		Caracteristique carac = caracteristiqueDao.findByAttribut(typeCarac, nom, valeur);
+		return carac;
+	}
 }
