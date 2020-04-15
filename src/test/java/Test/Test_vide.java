@@ -16,7 +16,6 @@ import dao.interfaces.IJardinRepository;
 import dao.interfaces.IPaiementRepository;
 import dao.interfaces.IPanierRepository;
 import dao.interfaces.IProduitRepository;
-import dao.interfaces.IReferentielCaracteristiqueRepository;
 import dao.interfaces.IReferentielFauneRepository;
 import dao.interfaces.IReferentielUtilisateurRepository;
 import dao.interfaces.ISelectionRepository;
@@ -33,7 +32,6 @@ import model.Jardin;
 import model.Paiement;
 import model.Panier;
 import model.Produit;
-import model.ReferentielCaracteristique;
 import model.ReferentielFaune;
 import model.ReferentielUtilisateur;
 import model.Selection;
@@ -58,7 +56,6 @@ public class Test_vide {
 		IHistoriqueRepository historiqueDao = context.getBean(IHistoriqueRepository.class);
 		IPaiementRepository paiementDao = context.getBean(IPaiementRepository.class);
 		IProduitRepository produitDao = context.getBean(IProduitRepository.class);
-		IReferentielCaracteristiqueRepository referentielCaracteristiqueDao = context.getBean(IReferentielCaracteristiqueRepository.class);
 		IReferentielFauneRepository referentielFauneDao = context.getBean(IReferentielFauneRepository.class);
 		IReferentielUtilisateurRepository referentielUtilisateurDao = context.getBean(IReferentielUtilisateurRepository.class);
 		ISelectionRepository selectionDao = context.getBean(ISelectionRepository.class);
@@ -303,7 +300,10 @@ public class Test_vide {
         
 //		List <Faune>limacefind=fauneDao.findByNomFaune("Limace");
 //		System.out.println(limacefind);
-//		
+		
+        List<Caracteristique> caracMais = caracteristiqueDao.findByFlore("mais");
+        System.out.println(caracMais);
+        
 		context.close();
 	}
 	
