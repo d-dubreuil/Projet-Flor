@@ -6,10 +6,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>projet-flore</groupId>
-	<artifactId>flore</artifactId>
+	<artifactId>flore-data</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>Projet Flore</name>
+	<name>Flore data</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,6 +28,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.13.Final</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate.validator</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.1.4.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
