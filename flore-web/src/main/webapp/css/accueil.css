@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/* Barre de nav */
 #logo {
 	font-size: 18px;
 	font-style: italic;
@@ -35,3 +36,96 @@ li:hover, li:active {
 	color: #8bc34a;
 }
 
+/* Traits horizontaux à côté du titre */
+.hr {
+	align-items: center;
+	display: flex;
+	text-align: center;
+}
+
+.hr:before, .hr:after {
+	border-top: .0625em solid;
+	content: "";
+	flex: 1;
+	margin: 1em;
+}
+
+/* Boutons */
+#buttonFlore:hover {
+	cursor: pointer;
+	background-color: #fffde7;
+}
+
+#buttonFlore:active {
+  background-color: #fffde7;
+  transform: translateY(4px);
+}
+
+#buttonFlore:focus {
+	box-shadow: none;
+}
+
+#buttonFaune:hover {
+	background-color: #f1f8e9;
+}
+
+#buttonFaune:active {
+	background-color: #f1f8e9;
+  transform: translateY(4px);
+}
+
+#buttonFaune:focus {
+	box-shadow: none;
+}
+
+#buttonLien:hover {
+	background-color: #fff8e1;
+}
+
+#buttonLien:active {
+background-color: #fff8e1;
+  transform: translateY(4px);
+}
+
+#buttonLien:focus {
+	box-shadow: none;
+}
+
+#buttonCompte:hover {
+	background-color: #e1f5fe;
+}
+
+#buttonCompte:active {
+background-color: #e1f5fe;
+  transform: translateY(4px);
+}
+
+#buttonCompte:focus {
+	box-shadow: none;
+}
+
+#buttonConseil:hover {
+background-color: #ffebee;
+}
+
+#buttonConseil:active {
+background-color: #ffebee;
+  transform: translateY(4px);
+}
+
+#buttonConseil:focus {
+	box-shadow: none;
+}
+
+#buttonContact:hover {
+	background-color: #fce4ec;
+}
+
+#buttonContact:active {
+background-color: #fce4ec;
+  transform: translateY(4px);
+}
+
+#buttonContact:focus {
+	box-shadow: none;
+}
