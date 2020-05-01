@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Preview Accueil</title>
+<link rel="stylesheet" type="text/css" href="accueil.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script type="text/javascript" src="accueil.js"></script>
+<style>
+	.hr {
+		/* centre verticalement les enfants entre eux */
+		align-items: center;
+		/* active flexbox */
+		display: flex;
+		/* garde le texte centré s'il passe sur plusieurs lignes ou si flexbox n'est pas supporté */
+		text-align: center;
+	}
+	.hr:before, .hr:after {
+		/* la couleur est volontairement absente ; ainsi elle sera celle du texte */
+		border-top: .0625em solid;
+		/* nécessaire pour afficher les pseudo-éléments */
+		content: "";
+		/* partage le reste de la largeur disponible */
+		flex: 1;
+		/* espace les traits du texte */
+		margin: 1em;
+	}
+</style>
+</head>
+
+<body>
+
+	<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light ">
+		
+		<a class="navbar-brand" href="#">
+   		 <img src="C:\Users\utilisateur\Downloads\logotest.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    		<span id="logo">Notre Prédicteur de Kompagnonnage</span>
+  		</a>
+  		<div class="collapse navbar-collapse " >
+			    <ul class="navbar-nav ml-auto">
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a></li>
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Flore</a></li>
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Faune</a></li>
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Associations</a></li>
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Conseils</a></li>
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Contact</a></li>
+			      <li id="li" class="nav-item active"><a class="nav-link" href="#">Qui sommes-nous ?</a></li>
+			    </ul>
+		</div>
+		<div id="navbarButtons" class="collapse navbar-collapse" >
+			    <ul class="navbar-nav ml-auto m-2">
+			      <li id="liButton" class="nav-item active mr-4 ml-4"><a class="nav-link" href="#">Panier  <i class="fas fa-shopping-basket"></i></a></li>
+			      <li id="liButton" class="nav-item active ml-4"><a class="nav-link" href="#"  style="color: #8bc34a;">Connexion  <i class="fas fa-bug"></i></a></li>
+			    </ul>
+		</div>
+	
+	</nav>
+	
+	<div class="container-fluid mt-5">
+		<div class="row justify-content-center align-items-center">
+			<div class="column" style="width:300px">
+				<img src="C:\Users\utilisateur\Downloads\logotest.png" class="rounded-circle img-fluid " alt="Responsive image" style="width:100%;" />
+			</div>
+			<div class="column" style="width:900px; text-align: center; align: middle;">
+				<h1 class="mb-4">Notre Prédicteur de Kompagnonnage</h1>
+				<h2 id="hr" class="hr">Vers un jardin au naturel en Permaculture</h2>
+			</div>
+  		</div>
+  		
+ 
+  		
+  	</div>
+	
+</body>
+</html>
