@@ -1,7 +1,15 @@
-.project
+flore-data/.project
 
-.classpath
+flore-data/.classpath
 
-.settings/
+flore-data/.settings/
 
-target/
+flore-data/target/
+
+flore-web/.project
+
+flore-web/.classpath
+
+flore-web/.settings/
+
+flore-web/target/
