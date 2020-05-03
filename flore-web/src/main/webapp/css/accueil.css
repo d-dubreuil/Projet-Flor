@@ -1,40 +1,188 @@
 @charset "UTF-8";
 
-
-
+/* Barre de nav */
 #logo {
 	font-size: 18px;
-	font-style: italic; 
+	font-style: italic;
 	font-family: Cambria;
-	color: #8bc34a; 
+	color: #8bc34a;
 }
 
 #navbar {
-	width:100%; 
-	font-size:18px;
-	background-color: #f1f8e9; 
+	width: 100%;
+	font-size: 18px;
+	background-color: #f1f8e9;
 }
 
-li { 
-	border-bottom-style: solid; 
+li {
+	border-bottom-style: solid;
 	border-color: transparent;
 }
 
 li:hover, li:active {
-	border-bottom-style: solid; 
-	border-color: #8bc34a; 
+	border-bottom-style: solid;
+	border-color: #8bc34a;
 }
 
 .nav-link {
-	font-size:18px;
-	font-style:bold; 
-	color: #8bc34a; 
+	font-size: 18px;
+	font-style: bold;
+	color: #8bc34a;
 }
 
 #liButton {
-	margin-right : 5; 
-	margin-left : 5;
-	color: #8bc34a; 
+	margin-right: 5;
+	margin-left: 5;
+	color: #8bc34a;
 }
 
+/* Traits horizontaux à côté du titre */
+.hr {
+	align-items: center;
+	display: flex;
+	text-align: center;
+}
 
+.hr:before, .hr:after {
+	border-top: .0625em solid;
+	content: "";
+	flex: 1;
+	margin: 1em;
+}
+
+/* Boutons */
+#buttonFlore:hover {
+	cursor: pointer;
+	background-color: #fffde7;
+}
+
+#buttonFlore:active {
+	background-color: #fffde7;
+	transform: translateY(4px);
+}
+
+#buttonFlore:focus {
+	box-shadow: none;
+}
+
+#buttonFaune:hover {
+	background-color: #f1f8e9;
+}
+
+#buttonFaune:active {
+	background-color: #f1f8e9;
+	transform: translateY(4px);
+}
+
+#buttonFaune:focus {
+	box-shadow: none;
+}
+
+#buttonLien:hover {
+	background-color: #fff8e1;
+}
+
+#buttonLien:active {
+	background-color: #fff8e1;
+	transform: translateY(4px);
+}
+
+#buttonLien:focus {
+	box-shadow: none;
+}
+
+#buttonCompte:hover {
+	background-color: #e1f5fe;
+}
+
+#buttonCompte:active {
+	background-color: #e1f5fe;
+	transform: translateY(4px);
+}
+
+#buttonCompte:focus {
+	box-shadow: none;
+}
+
+#buttonConseil:hover {
+	background-color: #ffebee;
+}
+
+#buttonConseil:active {
+	background-color: #ffebee;
+	transform: translateY(4px);
+}
+
+#buttonConseil:focus {
+	box-shadow: none;
+}
+
+#buttonContact:hover {
+	background-color: #fce4ec;
+}
+
+#buttonContact:active {
+	background-color: #fce4ec;
+	transform: translateY(4px);
+}
+
+#buttonContact:focus {
+	box-shadow: none;
+}
+
+h5 {
+	font-style: italic;
+}
+
+#plusInteraction {
+	float: right;
+	border-color: grey;
+}
+
+.interaction-link {
+	vertical-align: middle;
+	margin-left: 20px;
+	margin-bottom: 40px;
+	font-size: 15px;
+	font-style: italic;
+	color: #8bc34a;
+	font-size: 15px;
+}
+
+.btnRevenir, .btnPetitJardin, .btnPanier {
+	margin: 20px;
+	border: none;
+	background: none;
+}
+
+.btnRevenir:hover, .btnPetitJardin:hover, .btnPanier:hover {
+	border-bottom: solid;
+	border-bottom-color: #8bc34a;
+	box-shadow: none;
+}
+
+.btnRevenir:active, .btnPetitJardin:active, .btnPanier:active {
+	box-shadow: none;
+}
+
+.btnRevenir:focus, .btnPetitJardin:focus, .btnPanier:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+#plusInteraction {
+	border: none;
+	background: none;
+	border-radius: 0px;
+}
+
+#plusInteraction:hover {
+	border-bottom: solid;
+	border-bottom-color: #8bc34a;
+	box-shadow: none;
+}
+
+#plusInteraction:focus {
+	box-shadow: none;
+	outline: none;
+}
