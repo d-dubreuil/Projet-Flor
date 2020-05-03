@@ -57,8 +57,8 @@ li:hover, li:active {
 }
 
 #buttonFlore:active {
-  background-color: #fffde7;
-  transform: translateY(4px);
+	background-color: #fffde7;
+	transform: translateY(4px);
 }
 
 #buttonFlore:focus {
@@ -71,7 +71,7 @@ li:hover, li:active {
 
 #buttonFaune:active {
 	background-color: #f1f8e9;
-  transform: translateY(4px);
+	transform: translateY(4px);
 }
 
 #buttonFaune:focus {
@@ -83,8 +83,8 @@ li:hover, li:active {
 }
 
 #buttonLien:active {
-background-color: #fff8e1;
-  transform: translateY(4px);
+	background-color: #fff8e1;
+	transform: translateY(4px);
 }
 
 #buttonLien:focus {
@@ -96,8 +96,8 @@ background-color: #fff8e1;
 }
 
 #buttonCompte:active {
-background-color: #e1f5fe;
-  transform: translateY(4px);
+	background-color: #e1f5fe;
+	transform: translateY(4px);
 }
 
 #buttonCompte:focus {
@@ -105,12 +105,12 @@ background-color: #e1f5fe;
 }
 
 #buttonConseil:hover {
-background-color: #ffebee;
+	background-color: #ffebee;
 }
 
 #buttonConseil:active {
-background-color: #ffebee;
-  transform: translateY(4px);
+	background-color: #ffebee;
+	transform: translateY(4px);
 }
 
 #buttonConseil:focus {
@@ -122,10 +122,67 @@ background-color: #ffebee;
 }
 
 #buttonContact:active {
-background-color: #fce4ec;
-  transform: translateY(4px);
+	background-color: #fce4ec;
+	transform: translateY(4px);
 }
 
 #buttonContact:focus {
 	box-shadow: none;
+}
+
+h5 {
+	font-style: italic;
+}
+
+#plusInteraction {
+	float: right;
+	border-color: grey;
+}
+
+.interaction-link {
+	vertical-align: middle;
+	margin-left: 20px;
+	margin-bottom: 40px;
+	font-size: 15px;
+	font-style: italic;
+	color: #8bc34a;
+	font-size: 15px;
+}
+
+.btnRevenir, .btnPetitJardin, .btnPanier {
+	margin: 20px;
+	border: none;
+	background: none;
+}
+
+.btnRevenir:hover, .btnPetitJardin:hover, .btnPanier:hover {
+	border-bottom: solid;
+	border-bottom-color: #8bc34a;
+	box-shadow: none;
+}
+
+.btnRevenir:active, .btnPetitJardin:active, .btnPanier:active {
+	box-shadow: none;
+}
+
+.btnRevenir:focus, .btnPetitJardin:focus, .btnPanier:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+#plusInteraction {
+	border: none;
+	background: none;
+	border-radius: 0px;
+}
+
+#plusInteraction:hover {
+	border-bottom: solid;
+	border-bottom-color: #8bc34a;
+	box-shadow: none;
+}
+
+#plusInteraction:focus {
+	box-shadow: none;
+	outline: none;
 }
