@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+
+
+#logo {
+	font-size: 18px;
+	font-style: italic; 
+	font-family: Cambria;
+	color: #8bc34a; 
+}
+
+#navbar {
+	width:100%; 
+	font-size:18px;
+	background-color: #f1f8e9; 
+}
+
+li { 
+	border-bottom-style: solid; 
+	border-color: transparent;
+}
+
+li:hover, li:active {
+	border-bottom-style: solid; 
+	border-color: #8bc34a; 
+}
+
+.nav-link {
+	font-size:18px;
+	font-style:bold; 
+	color: #8bc34a; 
+}
+
+#liButton {
+	margin-right : 5; 
+	margin-left : 5;
+	color: #8bc34a; 
+}
+
+
