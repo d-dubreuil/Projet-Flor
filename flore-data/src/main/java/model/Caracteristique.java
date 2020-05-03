@@ -24,6 +24,7 @@ public class Caracteristique {
 	private int version;
 	private String nom;
 	private String valeur;
+	private Boolean bonusMalus;
 	@Enumerated(EnumType.STRING)
 	private TypeCarac typeCarac;
 	@OneToMany(mappedBy = "caracteristique")
@@ -37,11 +38,20 @@ public class Caracteristique {
 		super();
 	}
 
+	
+
 	public Caracteristique(String nom, String valeur, TypeCarac typeCarac) {
 		super();
 		this.nom = nom;
 		this.valeur = valeur;
 		this.typeCarac = typeCarac;
+	}
+	public Caracteristique(String nom, String valeur, TypeCarac typeCarac, Boolean bonusMalus) {
+		super();
+		this.nom = nom;
+		this.valeur = valeur;
+		this.typeCarac = typeCarac;
+		this.bonusMalus = bonusMalus;
 	}
 
 	public Long getId() {
@@ -119,10 +129,15 @@ public class Caracteristique {
 	public void addReferentielFaune(ReferentielFaune referentielFaune) {
 		this.referentielFaunes.add(referentielFaune);
 	}
-	
+
+
+
 	@Override
 	public String toString() {
-		return "Caracteristique [id=" + id + ", nom=" + nom + ", valeur=" + valeur + ", typeCarac=" + typeCarac + "]";
+		return "Caracteristique [id=" + id + ", version=" + version + ", nom=" + nom + ", valeur=" + valeur
+				+ ", bonusMalus=" + bonusMalus + ", typeCarac=" + typeCarac + "]";
 	}
+	
+	
 
 }

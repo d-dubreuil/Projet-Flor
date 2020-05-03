@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ public class Faune {
 	private Long id;
 	@Version
 	private int version;
+	@Column(unique = true)
 	private String nomFaune;
 	@OneToMany(mappedBy = "faune")
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();
