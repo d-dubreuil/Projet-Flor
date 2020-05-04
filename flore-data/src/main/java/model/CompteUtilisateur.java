@@ -26,6 +26,7 @@ public class CompteUtilisateur {
 	private String codePostal;
 	private String ville;
 	private String telephone;
+	private String informationsBancaires;
 	@OneToMany (mappedBy = "compte")
 	private List<Historique> historiques = new ArrayList<Historique>();
 	@OneToOne (mappedBy = "compteUtilisateur")
@@ -86,6 +87,24 @@ public class CompteUtilisateur {
 	}
 	public String getRue() {
 		return rue;
+	}
+	public String getInformationsBancaires() {
+		return informationsBancaires;
+	}
+	public void setInformationsBancaires(String informationsBancaires) {
+		this.informationsBancaires = informationsBancaires;
+	}
+	public List<Historique> getHistoriques() {
+		return historiques;
+	}
+	public void setHistoriques(List<Historique> historiques) {
+		this.historiques = historiques;
+	}
+	public List<ReferentielUtilisateur> getReferentielUtiliseurs() {
+		return referentielUtiliseurs;
+	}
+	public void setReferentielUtiliseurs(List<ReferentielUtilisateur> referentielUtiliseurs) {
+		this.referentielUtiliseurs = referentielUtiliseurs;
 	}
 	public void setRue(String rue) {
 		this.rue = rue;
