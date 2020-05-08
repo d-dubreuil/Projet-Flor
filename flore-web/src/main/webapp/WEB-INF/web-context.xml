@@ -13,8 +13,7 @@
 	<mvc:annotation-driven />
 
 	<!-- Scanner le package où se situe les Controller -->
-	<context:component-scan
-		base-package="flore.web" />
+	<context:component-scan base-package="flore.web" />
 
 	<!-- Configuration d'une exclusion sur les urls ...../css/*** vers un répertoire 
 		physique -->
@@ -44,7 +43,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 	<!-- Permet à Spring MVC de savoir quel moteur de rendu (View) utilisé -->
 	<!-- En remplacement du ViewResolver standard en JSP/JSTL -->
 	<bean id="viewResolver"

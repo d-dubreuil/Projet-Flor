@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<link rel="stylesheet" th:href="@{/css/accueil.css}" />
+<head>
+<meta charset="UTF-8">
+<title>Flore</title>
+</head>
+<body>
+
+	<section layout:fragment="monContenu"
+		class="row justify-content-center mt-5 ">
+
+		<div class="row mt-5 border justify-content-center">
+			<form class="column border">
+				<div class="fluid-container">
+					<div id="formulaire" class="navbar navbar-light bg-light ">
+						<ul class="navbar-nav ml-auto">
+							<li id="li" class="nav-item active">Espèces:</li>
+							<li id="li" class="nav-item active">Saison:</li>
+							<li id="li" class="nav-item active">Utilisation:</li>
+							<li id="li" class="nav-item active">Sol:</li>
+							<li id="li" class="nav-item active">Conditions météos:</li>
+						</ul>
+					</div>
+				</div>
+			</form>
+
+			<!-- BLOC résultats  -->
+			<section id="result" class="column justify-content-center border ">
+				<!-- BLOC résultat fraise  -->
+				<div class="border m-5">
+					<div class="row m-2 align-items-center">
+						<!-- BLOC Images  -->
+						<div class="column mr-5 " style="width: 150px;">
+							<img th:src="@{/images/fraises.png}" style="width: 100%" />
+						</div>
+						<!-- BLOC Texte  -->
+						<div class="column ml-5" style="width: 1000px;">
+							<h5>Fraises</h5>
+							<h6 style="font-style: italic">Fragaria Vesca</h6>
+						</div>
+					</div>
+				</div>
+
+				<!-- BLOC résultat haricots verts   -->
+				<div id="result" class="border m-5">
+					<div class="row m-2 align-items-center">
+						<!-- BLOC Images  -->
+						<div class="column mr-5 " style="width: 150px;">
+							<img th:src="@{/images/haricots.png}" style="width: 100%" />
+						</div>
+						<!-- BLOC Texte  -->
+						<div class="column ml-5" style="width: 1000px;">
+							<h5>Haricots verts</h5>
+							<h6 style="font-style: italic">Phaseolus vulgaris</h6>
+						</div>
+					</div>
+				</div>
+				<!-- BLOC résultat oeillets d'Inde  -->
+				<div id="result" class="border m-5">
+					<div class="row m-2 align-items-center">
+						<!-- BLOC Images  -->
+						<div class="column mr-5 " style="width: 150px;">
+							<img th:src="@{/images/oeilletsInde.png}" style="width: 100%" />
+						</div>
+						<!-- BLOC Texte  -->
+						<div class="column ml-5" style="width: 1000px;">
+							<h5>Oeillets d'Inde</h5>
+							<h6 style="font-style: italic">Tagetes patula</h6>
+						</div>
+					</div>
+				</div>
+				<!-- BLOC résultat tomates grappes   -->
+				<div id="result" class="border m-5">
+					<div class="row m-2 align-items-center">
+						<!-- BLOC Images  -->
+						<div class="column mr-5 " style="width: 150px;">
+							<img th:src="@{/images/tomatesGrappe.png}" style="width: 100%" />
+						</div>
+						<!-- BLOC Texte  -->
+						<div class="column ml-5" style="width: 1000px;">
+							<h5>Tomates grappe</h5>
+							<h6 style="font-style: italic">Lycopersicon esculentum</h6>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+	</section>
+
+
+</body>
+</html>
