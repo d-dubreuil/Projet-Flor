@@ -186,3 +186,22 @@ h5 {
 	box-shadow: none;
 	outline: none;
 }
+
+.btn:focus {
+	outline: none;
+}
+
+#sideBar {
+	/* 	border-bottom-style: solid; */
+	/* 	border-color: transparent; */
+	/* 	box-shadow: none; */
+	/* 	outline: none; */
+	border: none;
+}
+
+#sideBar:hover{
+	border-bottom: solid;
+	border-bottom-color: #8bc34a;
+	box-shadow: none;
+}
+
