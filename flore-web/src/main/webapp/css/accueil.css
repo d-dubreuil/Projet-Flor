@@ -1,5 +1,35 @@
 @charset "UTF-8";
 
+/* Background */
+body, html {
+   margin: 0;
+  /* The image used */
+  background: url(/flore-web/images/testBG.png);
+
+ /*  Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card {
+	width:1350px; 
+	height: 85%; 
+	align-content: center;
+	background-color: rgb(255,255,255,0.5);
+	border-color: #8bc34a;
+}
+
+.card-body {
+	width:1300px; 
+	height: 750px; 
+	align-content: center;
+}
+
 /* Barre de nav */
 #logo {
 	font-size: 18px;
@@ -36,7 +66,17 @@ li:hover, li:active {
 	color: #8bc34a;
 }
 
-/* Traits horizontaux à côté du titre */
+/* Logo / Titre / Traits horizontaux à côté du titre */
+h1 {
+	font-family:Cambira;
+}
+
+h2 {
+	font-family:Cambira;
+	font-style:italic;
+	color: #8bc34a;
+}
+
 .hr {
 	align-items: center;
 	display: flex;
@@ -51,157 +91,39 @@ li:hover, li:active {
 }
 
 /* Boutons */
-#buttonFlore:hover {
+
+h6 {
+	font-weight : normal;
+	font-style: italic; 
+}
+
+.btn {
+	transition: 600ms;
+}
+
+#buttonFlore:hover, #buttonFlore:active, #buttonFlore:focus {
 	cursor: pointer;
 	background-color: #fffde7;
 }
 
-#buttonFlore:active {
-	background-color: #fffde7;
-	transform: translateY(4px);
-}
-
-#buttonFlore:focus {
-	box-shadow: none;
-}
-
-#buttonFaune:hover {
+#buttonFaune:hover, #buttonFaune:active, #buttonFaune:focus {
 	background-color: #f1f8e9;
 }
 
-#buttonFaune:active {
-	background-color: #f1f8e9;
-	transform: translateY(4px);
-}
-
-#buttonFaune:focus {
-	box-shadow: none;
-}
-
-#buttonLien:hover {
+#buttonLien:hover, #buttonLien:active, #buttonLien:focus {
 	background-color: #fff8e1;
 }
 
-#buttonLien:active {
-	background-color: #fff8e1;
-	transform: translateY(4px);
-}
-
-#buttonLien:focus {
-	box-shadow: none;
-}
-
-#buttonCompte:hover {
+#buttonCompte:hover, #buttonCompte:active, #buttonCompte:focus {
 	background-color: #e1f5fe;
 }
 
-#buttonCompte:active {
-	background-color: #e1f5fe;
-	transform: translateY(4px);
-}
-
-#buttonCompte:focus {
-	box-shadow: none;
-}
-
-#buttonConseil:hover {
+#buttonConseil:hover, #buttonConseil:active, #buttonConseil:focus {
 	background-color: #ffebee;
 }
 
-#buttonConseil:active {
-	background-color: #ffebee;
-	transform: translateY(4px);
-}
-
-#buttonConseil:focus {
-	box-shadow: none;
-}
-
-#buttonContact:hover {
+#buttonContact:hover, #buttonContact:active, #buttonContact:focus {
 	background-color: #fce4ec;
 }
 
-#buttonContact:active {
-	background-color: #fce4ec;
-	transform: translateY(4px);
-}
-
-#buttonContact:focus {
-	box-shadow: none;
-}
-
-h5 {
-	font-style: italic;
-}
-
-#plusInteraction {
-	float: right;
-	border-color: grey;
-}
-
-.interaction-link {
-	vertical-align: middle;
-	margin-left: 20px;
-	margin-bottom: 40px;
-	font-size: 15px;
-	font-style: italic;
-	color: #8bc34a;
-	font-size: 15px;
-}
-
-.btnRevenir, .btnPetitJardin, .btnPanier {
-	margin: 20px;
-	border: none;
-	background: none;
-}
-
-.btnRevenir:hover, .btnPetitJardin:hover, .btnPanier:hover {
-	border-bottom: solid;
-	border-bottom-color: #8bc34a;
-	box-shadow: none;
-}
-
-.btnRevenir:active, .btnPetitJardin:active, .btnPanier:active {
-	box-shadow: none;
-}
-
-.btnRevenir:focus, .btnPetitJardin:focus, .btnPanier:focus {
-	box-shadow: none;
-	outline: none;
-}
-
-#plusInteraction {
-	border: none;
-	background: none;
-	border-radius: 0px;
-}
-
-#plusInteraction:hover {
-	border-bottom: solid;
-	border-bottom-color: #8bc34a;
-	box-shadow: none;
-}
-
-#plusInteraction:focus {
-	box-shadow: none;
-	outline: none;
-}
-
-.btn:focus {
-	outline: none;
-}
-
-#sideBar {
-	/* 	border-bottom-style: solid; */
-	/* 	border-color: transparent; */
-	/* 	box-shadow: none; */
-	/* 	outline: none; */
-	border: none;
-}
-
-#sideBar:hover{
-	border-bottom: solid;
-	border-bottom-color: #8bc34a;
-	box-shadow: none;
-}
 
