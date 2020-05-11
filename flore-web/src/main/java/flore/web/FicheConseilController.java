@@ -5,13 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
+public class FicheConseilController {
 
-	@GetMapping({ "", "/","/home2" })
-	public String home(Model model) {
-		model.addAttribute("page", "home");
+	@GetMapping("/ficheConseil")
+	public String flore(Model model) {
+		model.addAttribute("page", "FicheConseil");
 
-		return "/home";
+		return "/ficheConseil";
 	}
 }
-
