@@ -1,18 +1,67 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="layout.html">
-<link rel="stylesheet" th:href="@{/css/flore.css}" />
+<html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title>Flore</title>
+<link rel="stylesheet" type="text/css"
+	href="C:/java/workspace/Projet-Flor/flore-web/src/main/webapp/css/accueil.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script type="text/javascript" src="accueil.js"></script>
+
 </head>
+
 <body>
 
-	<section layout:fragment="monContenu"
-		class="row justify-content-center mt-5 ">
-		
-		<div class="row mt-5  justify-content-center ">
+	<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light ">
+
+		<a class="navbar-brand" href="#"> <img
+			src="file:///C:/java/workspace/Projet-Flor/flore-web/src/main/webapp/images/logotest.png"
+			width="30" height="30" class="d-inline-block align-top" alt="">
+			<span id="logo">Notre Prédicteur de Kompagnonnage</span>
+		</a>
+		<div class="collapse navbar-collapse ">
+			<ul class="navbar-nav ml-auto">
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="C:/java/workspace/Projet-Flor/flore-web/src/main/webapp/WEB-INF/templates/accueil2.html">Accueil<span
+						class="sr-only">(current)</span></a></li>
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="C:/java/workspace/Projet-Flor/flore-web/src/main/webapp/WEB-INF/templates/flore2.html">Flore</a></li>
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="#">Faune</a></li>
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="#">Associations</a></li>
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="#">Conseils</a></li>
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="#">Contact</a></li>
+				<li id="li" class="nav-item active"><a class="nav-link"
+					href="#">Qui sommes-nous ?</a></li>
+			</ul>
+		</div>
+		<div id="navbarButtons" class="collapse navbar-collapse">
+			<ul class="navbar-nav ml-auto m-2">
+				<li id="liButton" class="nav-item active mr-4 ml-4"><a
+					class="nav-link" href="#">Panier <i
+						class="fas fa-shopping-basket"></i></a></li>
+				<li id="liButton" class="nav-item active ml-4"><a
+					class="nav-link" href="#" style="color: #8bc34a;">Connexion <i
+						class="fas fa-bug"></i></a></li>
+			</ul>
+		</div>
+
+	</nav>
+
+
+	<!-- BLOC COMPLET  -->
+	<!-- BLOC formulaire  -->
+	<div class="row mt-5  justify-content-center ">
 		<div class="column border  mr-5" style="width: 400px">
 
 			<div id="accordion">
@@ -246,8 +295,9 @@
 		</section>
 	</div>
 
-	</section>
-
-
+	<footer>
+		<h6 class="footer-copyright text-center py-3 mt-5 bg-light"
+			style="background-color: #f1f8e9">© Copyright 2020</h6>
+	</footer>
 </body>
 </html>

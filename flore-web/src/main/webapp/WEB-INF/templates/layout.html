@@ -8,6 +8,7 @@
 <link rel="stylesheet" th:href="@{/css/all.css}">
 <link rel="stylesheet" th:href="@{/css/accueil.css}" />
 <link rel="stylesheet" th:href="@{/css/w3.css}"> 
+<link rel="stylesheet" th:href="@{/css/flore.css}" />
 <script th:src="@{/js/jquery-3.5.0.min.js}"></script>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/accueil.js}"></script>
@@ -16,10 +17,10 @@
 <body>
 	
 	<header>
-		<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark mb-5" >
 			
 			<a class="navbar-brand" href="#">
-	   		 <img th:src="@{/images/logotest.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+	   		 <img th:src="@{/images/logosansfondblanc.png}" width="30" height="30" class="d-inline-block align-top" alt="">
 	    		<span id="logo">Notre Prédicteur de Kompagnonnage</span>
 	  		</a>
 	  		<div class="collapse navbar-collapse " >
@@ -42,13 +43,18 @@
 		
 		</nav>
 	</header>
-	
-	<div class="container-fluid">
-		<section layout:fragment="monContenu"></section>
+	<br><br><br>
+
+	<div id="container" class="container-fluid justify-content-center align-items-center mt-5 mb-2" >
+		<div class="card bg mx-auto my-5 justify-content-center align-items-center">
+			<div class="card-body justify-content-center align-items-center">
+				<section layout:fragment="monContenu"></section>
+			</div>
+		</div>
 	</div>
-	
+
 	<footer>
-  		<h6 class="footer-copyright text-center py-3 mt-5 bg-light" style="background-color:#f1f8e9">© Copyright 2020 </h6>
+  		<h6 class="footer-copyright text-center py-3 bg-dark" style="color:white">© Copyright 2020 </h6>
   	</footer>
 	
 </body>

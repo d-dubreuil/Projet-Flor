@@ -9,9 +9,9 @@ public class HomeController {
 
 	@GetMapping({ "", "/","/home2" })
 	public String home(Model model) {
-		model.addAttribute("page", "home2");
+		model.addAttribute("page", "home");
 
-		return "/home2";
+		return "/home";
 	}
 }
 
