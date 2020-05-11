@@ -1,34 +1,29 @@
 @charset "UTF-8";
 
 /* Background */
-body, html {
+body, html  {
    margin: 0;
-  /* The image used */
+  /* Image */
   background: url(/flore-web/images/testBG.png);
 
- /*  Full height */
+ /*  Hauteur  */
   height: 100%; 
 
-  /* Center and scale the image nicely */
+  /* Centrer */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.card {
-	width:1350px; 
+#card {
+	width: 68%;
 	height: 85%; 
 	align-content: center;
 	background-color: rgb(255,255,255,0.5);
 	border-color: #8bc34a;
 }
 
-.card-body {
-	width:1300px; 
-	height: 750px; 
-	align-content: center;
-}
 
 /* Barre de nav */
 #logo {
@@ -102,7 +97,6 @@ h6 {
 }
 
 #buttonFlore:hover, #buttonFlore:active, #buttonFlore:focus {
-	cursor: pointer;
 	background-color: #fffde7;
 }
 
